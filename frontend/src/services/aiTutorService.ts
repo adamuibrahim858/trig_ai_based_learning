@@ -2,13 +2,13 @@ import { apiClient } from './api';
 import type { ApiResponse, AiConversation, AiMessage } from '../types/api';
 
 export const aiTutorService = {
-  async getConversations(): Promise<{ data: AiConversation[] } | AiConversation[]> {
-    const res = await apiClient.get<ApiResponse<any>>('/ai/conversations');
+  async getConversations(): Promise<AiConversation[]> {
+    const res = await apiClient.get<ApiResponse<{ data: AiConversation[] } | AiConversation[]>>('/ai/conversations');
     // If paginated, returns { data: [...] }
-    if (res.data.data?.data) {
+    if ('data' in res.data.data && Array.isArray(res.data.data.data)) {
       return res.data.data.data;
     }
-    return res.data.data;
+    return Array.isArray(res.data.data) ? res.data.data : [];
   },
 
   async createConversation(payload: { lesson_id?: number | null; title?: string | null }): Promise<AiConversation> {

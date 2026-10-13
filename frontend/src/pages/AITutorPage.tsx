@@ -29,9 +29,8 @@ export default function AITutorPage() {
 
   const loadConversations = async () => {
     try {
-      const raw = await aiTutorService.getConversations();
-      const list = Array.isArray(raw) ? raw : (raw as any).data ?? [];
-      setConversations(list as AiConversation[]);
+      const list = await aiTutorService.getConversations();
+      setConversations(list);
     } catch (err) {
       toast.error(getErrorMessage(err));
     } finally {

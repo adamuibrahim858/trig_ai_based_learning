@@ -40,18 +40,21 @@ apiClient.interceptors.response.use(
   }
 );
 
-// Helper to extract clean user-friendly error message from Axios errors
 export function getErrorMessage(error: unknown): string {
   if (axios.isAxiosError(error)) {
     const data = error.response?.data;
-    if (data?.message) {
-      return data.message;
-    }
-    if (data?.errors) {
-      const firstKey = Object.keys(data.errors)[0];
-      if (firstKey && data.errors[firstKey]?.length) {
-        return data.errors[firstKey][0];
+
+    // Prioritize specific validation errors if present
+    if (data && typeof data === 'object' && 'errors' in data && data.errors) {
+      const errors = data.errors as Record<string, string[]>;
+      const firstKey = Object.keys(errors)[0];
+      if (firstKey && errors[firstKey]?.length) {
+        return errors[firstKey][0];
       }
+    }
+
+    if (data && typeof data === 'object' && 'message' in data && data.message) {
+      return String(data.message);
     }
     if (error.response?.status === 403) {
       return 'You are not authorized to perform this action.';

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiClient } from '../services/api';
-import type { Certificate, CertificateEligibility, ApiResponse, PublicVerificationResult } from '../types/api';
+import { certificateService } from '../services/certificateService';
+import { getErrorMessage } from '../services/api';
+import type { Certificate, CertificateEligibility, PublicVerificationResult } from '../types/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import {
@@ -29,15 +30,15 @@ export default function CertificatePage() {
     try {
       setLoading(true);
       const [eligRes, certsRes] = await Promise.allSettled([
-        apiClient.get<ApiResponse<CertificateEligibility>>('/certificates/eligibility'),
-        apiClient.get<ApiResponse<Certificate[]>>('/certificates'),
+        certificateService.getEligibility(),
+        certificateService.getCertificates(),
       ]);
 
       if (eligRes.status === 'fulfilled') {
-        setEligibility(eligRes.value.data.data);
+        setEligibility(eligRes.value);
       }
       if (certsRes.status === 'fulfilled') {
-        setCertificates(certsRes.value.data.data);
+        setCertificates(certsRes.value);
       }
     } catch {
       toast.error('Failed to load certificate data');
@@ -53,12 +54,12 @@ export default function CertificatePage() {
   const handleIssueCertificate = async () => {
     try {
       setIssuing(true);
-      const res = await apiClient.post<ApiResponse<Certificate>>('/certificates');
+      const cert = await certificateService.issueCertificate();
       toast.success('Congratulations! Your official certificate has been issued!');
-      setCertificates(prev => [res.data.data, ...prev]);
+      setCertificates(prev => [cert, ...prev]);
       setEligibility(prev => prev ? { ...prev, eligible: false } : null);
-    } catch (err: any) {
-      toast.error(err.response?.data?.message || 'Failed to issue certificate');
+    } catch (err: unknown) {
+      toast.error(getErrorMessage(err));
     } finally {
       setIssuing(false);
     }
@@ -67,17 +68,7 @@ export default function CertificatePage() {
   const handleDownload = async (cert: Certificate) => {
     try {
       toast.info('Generating PDF download...');
-      const response = await apiClient.get(`/certificates/${cert.id}/download`, {
-        responseType: 'blob',
-      });
-      const blob = new Blob([response.data], { type: 'application/pdf' });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', `Certificate-${cert.certificate_number}.pdf`);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
+      await certificateService.downloadCertificate(cert.id, cert.certificate_number);
       toast.success('Certificate downloaded successfully');
     } catch {
       toast.error('Could not download certificate PDF');
@@ -97,12 +88,10 @@ export default function CertificatePage() {
       setVerifying(true);
       setVerifyError(null);
       setVerifyResult(null);
-      const res = await apiClient.get<ApiResponse<PublicVerificationResult>>(
-        `/certificates/verify/${encodeURIComponent(verifyCode.trim())}`
-      );
-      setVerifyResult(res.data.data);
-    } catch (err: any) {
-      setVerifyError(err.response?.data?.message || 'Certificate not found or invalid');
+      const result = await certificateService.verifyCertificate(verifyCode.trim());
+      setVerifyResult(result);
+    } catch (err: unknown) {
+      setVerifyError(getErrorMessage(err));
     } finally {
       setVerifying(false);
     }

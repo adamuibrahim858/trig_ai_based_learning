@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiClient } from '../services/api';
+import { dashboardService } from '../services/dashboardService';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import { curriculumService } from '../services/curriculumService';
@@ -27,8 +27,8 @@ export default function DashboardPage() {
   const fetchDashboard = async () => {
     try {
       setLoading(true);
-      const res = await apiClient.get<{ success: boolean; data: DashboardData }>('/dashboard');
-      setData(res.data.data);
+      const res = await dashboardService.getDashboard();
+      setData(res);
     } catch (err) {
       const msg = getErrorMessage(err);
       // If 404/not enrolled, fetch courses so user can enroll

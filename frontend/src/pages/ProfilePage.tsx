@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
-import { authService } from '../services/authService';
+import { profileService } from '../services/profileService';
+import { getErrorMessage } from '../services/api';
 import {
   User, Lock, CheckCircle2,
   KeyRound, Save
 } from 'lucide-react';
 
 export default function ProfilePage() {
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
   const toast = useToast();
 
   // Profile Form state
@@ -31,16 +32,11 @@ export default function ProfilePage() {
 
     try {
       setUpdatingProfile(true);
-      await authService.updateProfile({ name, email });
-      // Update local storage user if needed
-      const stored = localStorage.getItem('trig_user');
-      if (stored) {
-        const u = JSON.parse(stored);
-        localStorage.setItem('trig_user', JSON.stringify({ ...u, name, email }));
-      }
+      const updated = await profileService.updateProfile({ name, email });
+      setUser(updated);
       toast.success('Profile details updated successfully');
-    } catch (err: any) {
-      toast.error(err.response?.data?.message || 'Failed to update profile');
+    } catch (err: unknown) {
+      toast.error(getErrorMessage(err));
     } finally {
       setUpdatingProfile(false);
     }
@@ -63,7 +59,7 @@ export default function ProfilePage() {
 
     try {
       setUpdatingPassword(true);
-      await authService.updatePassword({
+      await profileService.updatePassword({
         current_password: currentPassword,
         password: newPassword,
         password_confirmation: confirmPassword,
@@ -72,8 +68,8 @@ export default function ProfilePage() {
       setCurrentPassword('');
       setNewPassword('');
       setConfirmPassword('');
-    } catch (err: any) {
-      toast.error(err.response?.data?.message || 'Failed to update password');
+    } catch (err: unknown) {
+      toast.error(getErrorMessage(err));
     } finally {
       setUpdatingPassword(false);
     }

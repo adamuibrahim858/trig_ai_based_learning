@@ -44,7 +44,13 @@ export const progressService = {
     status: string;
     completed_at?: string;
   }[]> {
-    const res = await apiClient.get<ApiResponse<any>>('/progress/topics');
+    const res = await apiClient.get<ApiResponse<{
+      topic_id: number;
+      topic_title: string;
+      week_number: number;
+      status: string;
+      completed_at?: string;
+    }[]>>('/progress/topics');
     return res.data.data;
   },
 
@@ -55,7 +61,13 @@ export const progressService = {
     started_at?: string;
     completed_at?: string;
   }[]> {
-    const res = await apiClient.get<ApiResponse<any>>('/progress/lessons');
+    const res = await apiClient.get<ApiResponse<{
+      lesson_id: number;
+      lesson_title: string;
+      status: string;
+      started_at?: string;
+      completed_at?: string;
+    }[]>>('/progress/lessons');
     return res.data.data;
   },
 };

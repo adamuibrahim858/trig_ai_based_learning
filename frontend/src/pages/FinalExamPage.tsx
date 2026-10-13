@@ -1,30 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiClient } from '../services/api';
-import type { ApiResponse, Test, Question, QuestionOption } from '../types/api';
+import { finalExamService, type FinalExamEligibility, type FinalExamData } from '../services/finalExamService';
+import { getErrorMessage } from '../services/api';
+import type { Question, QuestionOption, TestAttempt } from '../types/api';
 import { useToast } from '../contexts/ToastContext';
 import {
   GraduationCap, Award, CheckCircle, ArrowRight,
   HelpCircle, ShieldAlert, ChevronLeft, ChevronRight, Send
 } from 'lucide-react';
 
-interface EligibilityData {
-  eligible: boolean;
-  reason?: string | null;
-  topics_completed?: number;
-  total_topics?: number;
-}
-
-interface FinalExamData {
-  test: Test;
-  best_score?: {
-    percentage: number;
-    passed: boolean;
-    submitted_at: string;
-  } | null;
-}
-
-interface ActiveAttempt {
+interface ActiveAttempt extends Partial<TestAttempt> {
   id: number;
   test_id: number;
   questions?: Question[];
@@ -35,7 +20,7 @@ export default function FinalExamPage() {
   const toast = useToast();
 
   const [loading, setLoading] = useState(true);
-  const [eligibility, setEligibility] = useState<EligibilityData | null>(null);
+  const [eligibility, setEligibility] = useState<FinalExamEligibility | null>(null);
   const [examData, setExamData] = useState<FinalExamData | null>(null);
 
   // Active taking state
@@ -49,16 +34,16 @@ export default function FinalExamPage() {
     try {
       setLoading(true);
       const [eligRes, examRes] = await Promise.allSettled([
-        apiClient.get<ApiResponse<EligibilityData>>('/final-exam/eligibility'),
-        apiClient.get<ApiResponse<FinalExamData>>('/final-exam'),
+        finalExamService.getEligibility(),
+        finalExamService.getFinalExam(),
       ]);
 
       if (eligRes.status === 'fulfilled') {
-        setEligibility(eligRes.value.data.data);
+        setEligibility(eligRes.value);
       }
 
       if (examRes.status === 'fulfilled') {
-        setExamData(examRes.value.data.data);
+        setExamData(examRes.value);
       }
     } catch {
       toast.error('Could not verify final exam status');
@@ -74,19 +59,19 @@ export default function FinalExamPage() {
   const handleStartExam = async () => {
     try {
       setStartingAttempt(true);
-      const res = await apiClient.post<ApiResponse<any>>('/final-exam/attempts');
-      const attempt = res.data.data;
-      setActiveAttempt(attempt);
+      const attempt = await finalExamService.startAttempt();
+      const active: ActiveAttempt = { ...attempt };
 
       // If attempt questions are loaded on the test
       if (examData?.test.questions && examData.test.questions.length > 0) {
-        attempt.questions = examData.test.questions;
+        active.questions = examData.test.questions;
       }
+      setActiveAttempt(active);
       setCurrentIndex(0);
       setSelectedAnswers({});
       toast.info('Final Examination started. Good luck!');
-    } catch (err: any) {
-      toast.error(err.response?.data?.message || 'Failed to start the final exam');
+    } catch (err: unknown) {
+      toast.error(getErrorMessage(err));
     } finally {
       setStartingAttempt(false);
     }
@@ -119,16 +104,12 @@ export default function FinalExamPage() {
         selected_option_id: optId,
       }));
 
-      const res = await apiClient.post<ApiResponse<any>>(
-        `/final-exam/attempts/${activeAttempt.id}/submit`,
-        { answers: answersPayload }
-      );
+      const res = await finalExamService.submitAttempt(activeAttempt.id, answersPayload);
 
       toast.success('Final Examination submitted successfully!');
-      const attemptResult = res.data.data;
-      navigate(`/result/${attemptResult.id || activeAttempt.id}`);
-    } catch (err: any) {
-      toast.error(err.response?.data?.message || 'Error submitting exam');
+      navigate(`/result/${res.attempt.id || activeAttempt.id}`);
+    } catch (err: unknown) {
+      toast.error(getErrorMessage(err));
     } finally {
       setSubmitting(false);
     }
@@ -409,7 +390,7 @@ export default function FinalExamPage() {
                   {bestScore.percentage}%
                 </span>
                 <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                  Recorded on {new Date(bestScore.submitted_at).toLocaleDateString()}
+                  {bestScore.submitted_at ? `Recorded on ${new Date(bestScore.submitted_at).toLocaleDateString()}` : ''}
                 </span>
               </div>
               {bestScore.passed && (
