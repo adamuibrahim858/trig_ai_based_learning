@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import { getErrorMessage } from '../services/api';
@@ -7,6 +7,7 @@ import { Eye, EyeOff, Loader2 } from 'lucide-react';
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
   const toast = useToast();
   const [email, setEmail] = useState('');
@@ -15,6 +16,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  const from = (location.state as { from?: { pathname?: string } })?.from?.pathname || '/dashboard';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -22,7 +25,7 @@ export default function LoginPage() {
     try {
       await login(email, password);
       toast.success('Welcome back!');
-      navigate('/dashboard');
+      navigate(from, { replace: true });
     } catch (err) {
       setError(getErrorMessage(err));
     } finally {

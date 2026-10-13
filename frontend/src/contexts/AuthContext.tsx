@@ -21,18 +21,44 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('trig_token');
-    const storedUser = localStorage.getItem('trig_user');
-    if (storedToken && storedUser) {
+    let isMounted = true;
+
+    const restoreSession = async () => {
+      const storedToken = localStorage.getItem('trig_token');
+      if (!storedToken) {
+        if (isMounted) setIsLoading(false);
+        return;
+      }
+
       try {
-        setToken(storedToken);
-        setUserState(JSON.parse(storedUser));
+        if (isMounted) setToken(storedToken);
+
+        // Verify token with backend to avoid trusting stale/revoked localStorage
+        const freshUser = await authService.getCurrentUser();
+        if (isMounted) {
+          setUserState(freshUser);
+          localStorage.setItem('trig_user', JSON.stringify(freshUser));
+        }
       } catch {
+        // Stored token is invalid, revoked, or expired
         localStorage.removeItem('trig_token');
         localStorage.removeItem('trig_user');
+        if (isMounted) {
+          setToken(null);
+          setUserState(null);
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
       }
-    }
-    setIsLoading(false);
+    };
+
+    restoreSession();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Listen for unauthorized events
