@@ -71,6 +71,7 @@ export interface Topic {
   status: 'locked' | 'available' | 'in_progress' | 'completed';
   is_accessible: boolean;
   lock_reason?: string | null;
+  assessment_id?: number | null;
   lessons?: Lesson[];
 }
 
@@ -123,6 +124,7 @@ export interface TestAttempt {
     title: string;
     type: string;
     pass_mark: number;
+    duration_minutes?: number;
   };
 }
 

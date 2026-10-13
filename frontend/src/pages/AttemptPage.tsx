@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { assessmentService } from '../services/assessmentService';
 import { useToast } from '../contexts/ToastContext';
@@ -18,9 +18,67 @@ export default function AttemptPage() {
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
   const [testTitle, setTestTitle] = useState('');
 
+  // Keep latest answers and questions in ref for timer auto-submit
+  const answersRef = useRef(answers);
+  const questionsRef = useRef(questions);
+  const submittingRef = useRef(submitting);
+
   useEffect(() => {
-    if (attemptId) loadAttempt(parseInt(attemptId));
-  }, [attemptId]);
+    answersRef.current = answers;
+  }, [answers]);
+
+  useEffect(() => {
+    questionsRef.current = questions;
+  }, [questions]);
+
+  useEffect(() => {
+    submittingRef.current = submitting;
+  }, [submitting]);
+
+  const handleSubmit = useCallback(async () => {
+    if (!attemptId || submittingRef.current) return;
+    setSubmitting(true);
+
+    const currentQuestions = questionsRef.current;
+    const currentAnswers = answersRef.current;
+
+    const finalAnswers: SubmitAnswerPayload[] = currentQuestions.map(q => ({
+      question_id: q.id,
+      selected_option_id: currentAnswers[q.id]?.selected_option_id ?? null,
+      answer_text: currentAnswers[q.id]?.answer_text ?? null,
+    }));
+
+    try {
+      const result = await assessmentService.submitAttempt(parseInt(attemptId), finalAnswers);
+      navigate(`/result/${attemptId}`, { state: result });
+    } catch (err) {
+      toast.error(getErrorMessage(err));
+      setSubmitting(false);
+    }
+  }, [attemptId, navigate, toast]);
+
+  const loadAttempt = useCallback(async (id: number) => {
+    try {
+      setLoading(true);
+      const data = await assessmentService.getAttempt(id);
+      setQuestions(data.questions);
+      setTestTitle(data.attempt.test?.title ?? 'Assessment');
+      if (data.attempt.test?.duration_minutes) {
+        setTimeLeft(data.attempt.test.duration_minutes * 60);
+      }
+    } catch (err) {
+      toast.error(getErrorMessage(err));
+      navigate('/assessments');
+    } finally {
+      setLoading(false);
+    }
+  }, [navigate, toast]);
+
+  useEffect(() => {
+    if (attemptId) {
+      loadAttempt(parseInt(attemptId));
+    }
+  }, [attemptId, loadAttempt]);
 
   // Countdown timer
   useEffect(() => {
@@ -36,24 +94,7 @@ export default function AttemptPage() {
       });
     }, 1000);
     return () => clearInterval(id);
-  }, [timeLeft]);
-
-  const loadAttempt = async (id: number) => {
-    try {
-      const data = await assessmentService.getAttempt(id);
-      setQuestions(data.questions);
-      setTestTitle(data.attempt.test?.title ?? 'Assessment');
-      // If timed: data.attempt.test?.duration_minutes
-      if (data.attempt.test) {
-        // We don't have duration here but set 30min default if needed
-      }
-    } catch (err) {
-      toast.error(getErrorMessage(err));
-      navigate('/assessments');
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [timeLeft, handleSubmit]);
 
   const selectAnswer = (q: Question, optionId: number) => {
     setAnswers(prev => ({
@@ -61,24 +102,6 @@ export default function AttemptPage() {
       [q.id]: { question_id: q.id, selected_option_id: optionId },
     }));
   };
-
-  const handleSubmit = useCallback(async () => {
-    if (!attemptId) return;
-    // Fill unanswered
-    const finalAnswers: SubmitAnswerPayload[] = questions.map(q => ({
-      question_id: q.id,
-      selected_option_id: answers[q.id]?.selected_option_id ?? null,
-      answer_text: answers[q.id]?.answer_text ?? null,
-    }));
-    setSubmitting(true);
-    try {
-      const result = await assessmentService.submitAttempt(parseInt(attemptId), finalAnswers);
-      navigate(`/result/${attemptId}`, { state: result });
-    } catch (err) {
-      toast.error(getErrorMessage(err));
-      setSubmitting(false);
-    }
-  }, [attemptId, answers, questions, navigate, toast]);
 
   if (loading) {
     return <div className="loading-center" style={{ height: '60vh' }}><div className="spinner" /></div>;
@@ -191,7 +214,7 @@ export default function AttemptPage() {
             disabled={submitting}
             style={{ background: 'var(--success)', boxShadow: '0 4px 16px var(--success-glow)' }}
           >
-            {submitting ? <Loader2 size={15} /> : <Send size={15} />}
+            {submitting ? <Loader2 size={15} className="spin-icon" /> : <Send size={15} />}
             Submit Test
           </button>
         )}

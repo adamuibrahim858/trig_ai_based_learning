@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { curriculumService } from '../services/curriculumService';
 import { aiTutorService } from '../services/aiTutorService';
@@ -21,12 +21,9 @@ export default function LessonPage() {
   const [aiSummary, setAiSummary] = useState('');
   const [started, setStarted] = useState(false);
 
-  useEffect(() => {
-    if (lessonId) loadLesson(parseInt(lessonId));
-  }, [lessonId]);
-
-  const loadLesson = async (id: number) => {
+  const loadLesson = useCallback(async (id: number) => {
     try {
+      setLoading(true);
       const l = await curriculumService.getLesson(id);
       setLesson(l);
       // Auto-start if available
@@ -42,7 +39,13 @@ export default function LessonPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate, toast]);
+
+  useEffect(() => {
+    if (lessonId) {
+      loadLesson(parseInt(lessonId));
+    }
+  }, [lessonId, loadLesson]);
 
   const handleComplete = async () => {
     if (!lesson) return;
@@ -127,7 +130,7 @@ export default function LessonPage() {
               onClick={handleAISummary}
               disabled={summarizing}
             >
-              {summarizing ? <Loader2 size={14} /> : <Brain size={14} />}
+              {summarizing ? <Loader2 size={14} className="spin-icon" /> : <Brain size={14} />}
               AI Summary
             </button>
             {lesson.status !== 'completed' && started && (
@@ -137,7 +140,7 @@ export default function LessonPage() {
                 onClick={handleComplete}
                 disabled={completing}
               >
-                {completing ? <Loader2 size={14} /> : <CheckCircle2 size={14} />}
+                {completing ? <Loader2 size={14} className="spin-icon" /> : <CheckCircle2 size={14} />}
                 Mark Complete
               </button>
             )}
@@ -194,7 +197,6 @@ export default function LessonPage() {
 
         {lesson.content ? (
           <div className="lesson-content" style={{ fontSize: 15 }}>
-            {/* Render content - strip any HTML-like or render as text */}
             {lesson.content.split('\n').map((line, i) => (
               <p key={i} style={{ marginBottom: line.trim() === '' ? 8 : 0 }}>
                 {line}
@@ -251,7 +253,7 @@ export default function LessonPage() {
             onClick={handleComplete}
             disabled={completing}
           >
-            {completing ? <Loader2 size={16} /> : <CheckCircle2 size={16} />}
+            {completing ? <Loader2 size={16} className="spin-icon" /> : <CheckCircle2 size={16} />}
             Mark Lesson as Complete
           </button>
         </div>

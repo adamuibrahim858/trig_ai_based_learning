@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { certificateService } from '../services/certificateService';
 import { getErrorMessage } from '../services/api';
@@ -26,7 +26,7 @@ export default function CertificatePage() {
   const [verifyResult, setVerifyResult] = useState<PublicVerificationResult | null>(null);
   const [verifyError, setVerifyError] = useState<string | null>(null);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setLoading(true);
       const [eligRes, certsRes] = await Promise.allSettled([
@@ -45,11 +45,11 @@ export default function CertificatePage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   const handleIssueCertificate = async () => {
     try {
@@ -99,10 +99,8 @@ export default function CertificatePage() {
 
   if (loading) {
     return (
-      <div className="page-container">
-        <div className="loading-center">
-          <div className="spinner" id="certificate-spinner" />
-        </div>
+      <div className="loading-center">
+        <div className="spinner" id="certificate-spinner" />
       </div>
     );
   }
@@ -110,7 +108,7 @@ export default function CertificatePage() {
   const primaryCert = certificates[0];
 
   return (
-    <div className="page-container" id="certificate-page">
+    <div id="certificate-page">
       {/* Header */}
       <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>

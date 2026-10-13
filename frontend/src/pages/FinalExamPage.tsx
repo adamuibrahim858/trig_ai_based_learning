@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { finalExamService, type FinalExamEligibility, type FinalExamData } from '../services/finalExamService';
 import { getErrorMessage } from '../services/api';
@@ -30,7 +30,7 @@ export default function FinalExamPage() {
   const [submitting, setSubmitting] = useState(false);
   const [startingAttempt, setStartingAttempt] = useState(false);
 
-  const fetchExamStatus = async () => {
+  const fetchExamStatus = useCallback(async () => {
     try {
       setLoading(true);
       const [eligRes, examRes] = await Promise.allSettled([
@@ -50,11 +50,11 @@ export default function FinalExamPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
 
   useEffect(() => {
     fetchExamStatus();
-  }, []);
+  }, [fetchExamStatus]);
 
   const handleStartExam = async () => {
     try {
@@ -117,10 +117,8 @@ export default function FinalExamPage() {
 
   if (loading) {
     return (
-      <div className="page-container">
-        <div className="loading-center">
-          <div className="spinner" id="exam-loading-spinner" />
-        </div>
+      <div className="loading-center">
+        <div className="spinner" id="exam-loading-spinner" />
       </div>
     );
   }
@@ -132,7 +130,7 @@ export default function FinalExamPage() {
     const isLast = currentIndex === questions.length - 1;
 
     return (
-      <div className="page-container" id="active-exam-container" style={{ maxWidth: 880, margin: '0 auto' }}>
+      <div id="active-exam-container" style={{ maxWidth: 880, margin: '0 auto' }}>
         {/* Top Sticky Test Bar */}
         <div
           className="card"
@@ -288,7 +286,7 @@ export default function FinalExamPage() {
   const bestScore = examData?.best_score;
 
   return (
-    <div className="page-container" id="final-exam-page">
+    <div id="final-exam-page">
       {/* Header */}
       <div className="page-header">
         <h1 className="page-title" id="exam-page-title" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>

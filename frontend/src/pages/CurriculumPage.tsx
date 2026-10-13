@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { curriculumService } from '../services/curriculumService';
+import { assessmentService } from '../services/assessmentService';
 import { useToast } from '../contexts/ToastContext';
 import { getErrorMessage } from '../services/api';
 import type { Topic, Lesson } from '../types/api';
 import {
   ChevronDown, ChevronRight, CheckCircle2, Lock,
-  PlayCircle, Clock, ArrowRight,
+  PlayCircle, Clock, ArrowRight, Award, Loader2,
 } from 'lucide-react';
 
 export default function CurriculumPage() {
@@ -15,13 +16,11 @@ export default function CurriculumPage() {
   const [topics, setTopics] = useState<Topic[]>([]);
   const [loading, setLoading] = useState(true);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+  const [startingAssessmentId, setStartingAssessmentId] = useState<number | null>(null);
 
-  useEffect(() => {
-    load();
-  }, []);
-
-  const load = async () => {
+  const load = useCallback(async () => {
     try {
+      setLoading(true);
       const t = await curriculumService.getCourseTopics(1);
       setTopics(t);
       // Auto-expand first in-progress or available topic
@@ -32,10 +31,25 @@ export default function CurriculumPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
 
   const toggle = (id: number) =>
     setExpanded(prev => ({ ...prev, [id]: !prev[id] }));
+
+  const handleStartTopicAssessment = async (assessmentId: number) => {
+    try {
+      setStartingAssessmentId(assessmentId);
+      const attempt = await assessmentService.startAttempt(assessmentId);
+      navigate(`/attempt/${attempt.id}`);
+    } catch (err) {
+      toast.error(getErrorMessage(err));
+      setStartingAssessmentId(null);
+    }
+  };
 
   const statusIcon = (status: Lesson['status'], accessible: boolean) => {
     if (!accessible) return <Lock size={15} style={{ color: 'var(--text-muted)' }} />;
@@ -73,7 +87,8 @@ export default function CurriculumPage() {
       {/* Week grid overview */}
       <div className="grid-4" style={{ marginBottom: 32 }}>
         {topics.map(t => (
-          <div key={t.id}
+          <div
+            key={t.id}
             className="week-row"
             onClick={() => toggle(t.id)}
             style={{ cursor: 'pointer' }}
@@ -136,14 +151,14 @@ export default function CurriculumPage() {
               </div>
             </button>
 
-            {/* Lessons */}
-            {expanded[topic.id] && topic.lessons && (
+            {/* Lessons & Topic Assessment */}
+            {expanded[topic.id] && (
               <div style={{
                 borderTop: '1px solid var(--border)',
-                padding: '12px 22px 16px',
+                padding: '14px 22px 18px',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 8,
+                gap: 10,
               }}>
                 {!topic.is_accessible && (
                   <div style={{
@@ -158,7 +173,8 @@ export default function CurriculumPage() {
                     🔒 {topic.lock_reason ?? 'Complete previous topics to unlock this week.'}
                   </div>
                 )}
-                {topic.lessons.map((lesson) => (
+
+                {topic.lessons?.map((lesson) => (
                   <LessonRow
                     key={lesson.id}
                     lesson={lesson}
@@ -168,6 +184,46 @@ export default function CurriculumPage() {
                     statusIcon={statusIcon(lesson.status, lesson.is_accessible)}
                   />
                 ))}
+
+                {/* Topic Assessment Card/Action */}
+                {topic.assessment_id && topic.is_accessible && (
+                  <div style={{
+                    marginTop: 8,
+                    padding: '14px 16px',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'rgba(99,102,241,0.06)',
+                    border: '1px solid rgba(99,102,241,0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 12,
+                    flexWrap: 'wrap',
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <Award size={18} style={{ color: 'var(--primary)' }} />
+                      <div>
+                        <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text-primary)' }}>
+                          Week {topic.week_number} Mastery Assessment
+                        </div>
+                        <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
+                          Complete after lessons to validate your understanding
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      className="btn btn-primary btn-sm"
+                      onClick={() => handleStartTopicAssessment(topic.assessment_id!)}
+                      disabled={startingAssessmentId === topic.assessment_id}
+                    >
+                      {startingAssessmentId === topic.assessment_id ? (
+                        <><Loader2 size={13} className="spin-icon" /> Starting…</>
+                      ) : (
+                        <>Take Assessment <ArrowRight size={13} /></>
+                      )}
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>

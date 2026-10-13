@@ -83,7 +83,7 @@ export default function ProfilePage() {
     .slice(0, 2);
 
   return (
-    <div className="page-container" id="profile-page" style={{ maxWidth: 900, margin: '0 auto' }}>
+    <div id="profile-page" style={{ maxWidth: 900, margin: '0 auto' }}>
       {/* Header */}
       <div className="page-header">
         <h1 className="page-title" id="profile-title">Student Profile & Settings</h1>

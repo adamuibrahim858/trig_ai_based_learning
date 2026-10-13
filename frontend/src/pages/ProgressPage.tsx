@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { progressService, type OverallProgressResponse } from '../services/progressService';
 import { useToast } from '../contexts/ToastContext';
@@ -14,7 +14,7 @@ export default function ProgressPage() {
   const [data, setData] = useState<OverallProgressResponse | null>(null);
   const [activeTab, setActiveTab] = useState<'topics' | 'lessons' | 'assessments'>('topics');
 
-  const fetchProgress = async () => {
+  const fetchProgress = useCallback(async () => {
     try {
       setLoading(true);
       const res = await progressService.getOverallProgress();
@@ -24,18 +24,16 @@ export default function ProgressPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
 
   useEffect(() => {
     fetchProgress();
-  }, []);
+  }, [fetchProgress]);
 
   if (loading) {
     return (
-      <div className="page-container">
-        <div className="loading-center">
-          <div className="spinner" id="progress-spinner" />
-        </div>
+      <div className="loading-center">
+        <div className="spinner" id="progress-spinner" />
       </div>
     );
   }
@@ -56,7 +54,7 @@ export default function ProgressPage() {
     : 0;
 
   return (
-    <div className="page-container" id="progress-page">
+    <div id="progress-page">
       {/* Header */}
       <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>

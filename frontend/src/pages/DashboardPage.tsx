@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { dashboardService } from '../services/dashboardService';
 import { useAuth } from '../contexts/AuthContext';
@@ -20,11 +20,7 @@ export default function DashboardPage() {
   const [enrolling, setEnrolling] = useState(false);
   const [courses, setCourses] = useState<Course[]>([]);
 
-  useEffect(() => {
-    fetchDashboard();
-  }, []);
-
-  const fetchDashboard = async () => {
+  const fetchDashboard = useCallback(async () => {
     try {
       setLoading(true);
       const res = await dashboardService.getDashboard();
@@ -42,7 +38,11 @@ export default function DashboardPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
+
+  useEffect(() => {
+    fetchDashboard();
+  }, [fetchDashboard]);
 
   const handleEnroll = async (courseId: number) => {
     setEnrolling(true);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { recommendationService } from '../services/recommendationService';
 import type { LearningRecommendation } from '../types/api';
@@ -15,7 +15,7 @@ export default function RecommendationsPage() {
   const [dismissingId, setDismissingId] = useState<number | null>(null);
   const [recommendations, setRecommendations] = useState<LearningRecommendation[]>([]);
 
-  const fetchRecommendations = async () => {
+  const fetchRecommendations = useCallback(async () => {
     try {
       setLoading(true);
       const data = await recommendationService.getRecommendations();
@@ -25,11 +25,11 @@ export default function RecommendationsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
 
   useEffect(() => {
     fetchRecommendations();
-  }, []);
+  }, [fetchRecommendations]);
 
   const handleDismiss = async (id: number) => {
     try {
@@ -58,7 +58,7 @@ export default function RecommendationsPage() {
   };
 
   return (
-    <div className="page-container" id="recommendations-page">
+    <div id="recommendations-page">
       {/* Header */}
       <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>

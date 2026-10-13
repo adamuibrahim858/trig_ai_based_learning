@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { assessmentService } from '../services/assessmentService';
 import { useToast } from '../contexts/ToastContext';
@@ -13,12 +13,9 @@ export default function AssessmentsPage() {
   const [loading, setLoading] = useState(true);
   const [starting, setStarting] = useState<number | null>(null);
 
-  useEffect(() => {
-    load();
-  }, []);
-
-  const load = async () => {
+  const load = useCallback(async () => {
     try {
+      setLoading(true);
       const t = await assessmentService.getTests();
       setTests(t);
     } catch (err) {
@@ -26,7 +23,11 @@ export default function AssessmentsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
 
   const handleStart = async (testId: number) => {
     setStarting(testId);
@@ -125,7 +126,7 @@ export default function AssessmentsPage() {
                 disabled={starting === test.id}
               >
                 {starting === test.id ? (
-                  <><Loader2 size={14} /> Starting…</>
+                  <><Loader2 size={14} className="spin-icon" /> Starting…</>
                 ) : (
                   <>Start Test <ArrowRight size={14} /></>
                 )}
