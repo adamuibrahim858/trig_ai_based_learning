@@ -48,7 +48,6 @@ Route::prefix('v1')->group(function () {
 
     Route::get('/courses', [CourseController::class, 'index']);
     Route::get('/courses/{course}', [CourseController::class, 'show']);
-    Route::get('/courses/{course}/topics', [TopicController::class, 'index']);
 
     // Public Certificate Verification (anyone can verify a certificate by code)
     Route::get('/certificates/verify/{certificateNumber}', [CertificateController::class, 'verify']);
@@ -75,6 +74,9 @@ Route::prefix('v1')->group(function () {
 
         // Course Enrollment
         Route::post('/courses/{course}/enroll', [CourseController::class, 'enroll']);
+
+        // Course Topics (authenticated for status tracking)
+        Route::get('/courses/{course}/topics', [TopicController::class, 'index']);
 
         // Curriculum: Topics & Lessons
         Route::get('/topics/{topic}', [TopicController::class, 'show']);
