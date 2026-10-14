@@ -1,0 +1,1522 @@
+{
+  "1": [
+    {
+      "question_text": "Classify an angle of 72\u00b0.",
+      "question_type": "multiple_choice",
+      "explanation": "An angle greater than 0\u00b0 and less than 90\u00b0 is an acute angle.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Acute",
+          "is_correct": true
+        },
+        {
+          "text": "Right",
+          "is_correct": false
+        },
+        {
+          "text": "Obtuse",
+          "is_correct": false
+        },
+        {
+          "text": "Reflex",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Classify a triangle with sides measuring 6 cm, 6 cm, and 6 cm.",
+      "question_type": "multiple_choice",
+      "explanation": "A triangle with all three sides equal is an equilateral triangle.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Equilateral",
+          "is_correct": true
+        },
+        {
+          "text": "Isosceles",
+          "is_correct": false
+        },
+        {
+          "text": "Scalene",
+          "is_correct": false
+        },
+        {
+          "text": "Right-angled",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the third angle of a triangle whose other two angles are 42\u00b0 and 83\u00b0.",
+      "question_type": "numerical",
+      "explanation": "The interior angles of a triangle add up to 180\u00b0. Therefore: 180\u00b0 - 42\u00b0 - 83\u00b0 = 55\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 55,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "55\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "65\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "45\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "75\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "A triangle has angles 90\u00b0, 25\u00b0, and 65\u00b0. Classify it by its angles.",
+      "question_type": "multiple_choice",
+      "explanation": "A triangle containing one 90\u00b0 angle is a right-angled triangle.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Right-angled",
+          "is_correct": true
+        },
+        {
+          "text": "Acute-angled",
+          "is_correct": false
+        },
+        {
+          "text": "Obtuse-angled",
+          "is_correct": false
+        },
+        {
+          "text": "Equilateral",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "The two opposite interior angles of a triangle's exterior angle are 38\u00b0 and 64\u00b0. Find the exterior angle.",
+      "question_type": "numerical",
+      "explanation": "The exterior angle of a triangle equals the sum of the two opposite interior angles: 38\u00b0 + 64\u00b0 = 102\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 102,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "102\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "78\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "112\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "90\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Which of the following is a primary real-world application of trigonometry?",
+      "question_type": "multiple_choice",
+      "explanation": "Trigonometry is used in surveying, navigation, architecture, and estimating inaccessible heights and distances.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Estimating inaccessible heights, surveying, and navigation",
+          "is_correct": true
+        },
+        {
+          "text": "Calculating compound interest in savings accounts",
+          "is_correct": false
+        },
+        {
+          "text": "Balancing chemical equations",
+          "is_correct": false
+        },
+        {
+          "text": "Categorizing biological species",
+          "is_correct": false
+        }
+      ]
+    }
+  ],
+  "2": [
+    {
+      "question_text": "What is the hypotenuse in a right-angled triangle?",
+      "question_type": "multiple_choice",
+      "explanation": "The hypotenuse is the side opposite the 90\u00b0 right angle, and is always the longest side.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "The side opposite the right angle",
+          "is_correct": true
+        },
+        {
+          "text": "The side adjacent to the right angle",
+          "is_correct": false
+        },
+        {
+          "text": "The shortest side of the triangle",
+          "is_correct": false
+        },
+        {
+          "text": "The side opposite the acute reference angle",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "In right-angled triangle XYZ with angle Y = 90\u00b0, which side is the hypotenuse?",
+      "question_type": "multiple_choice",
+      "explanation": "The side opposite vertex Y is side XZ.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Side XZ",
+          "is_correct": true
+        },
+        {
+          "text": "Side XY",
+          "is_correct": false
+        },
+        {
+          "text": "Side YZ",
+          "is_correct": false
+        },
+        {
+          "text": "Side XX",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "In right triangle XYZ with angle Y = 90\u00b0, what are the opposite and adjacent sides relative to reference angle X?",
+      "question_type": "multiple_choice",
+      "explanation": "Relative to angle X: side YZ is opposite, side XY is adjacent, and side XZ is the hypotenuse.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Opposite is YZ; Adjacent is XY",
+          "is_correct": true
+        },
+        {
+          "text": "Opposite is XY; Adjacent is YZ",
+          "is_correct": false
+        },
+        {
+          "text": "Opposite is XZ; Adjacent is YZ",
+          "is_correct": false
+        },
+        {
+          "text": "Opposite is YZ; Adjacent is XZ",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "If the reference angle in a right triangle changes from angle X to angle Z, how do the side labels change?",
+      "question_type": "multiple_choice",
+      "explanation": "Opposite and adjacent switch roles, while the hypotenuse always stays the same.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Opposite and adjacent switch; hypotenuse remains the same",
+          "is_correct": true
+        },
+        {
+          "text": "All three sides change their labels",
+          "is_correct": false
+        },
+        {
+          "text": "Hypotenuse and opposite switch; adjacent remains the same",
+          "is_correct": false
+        },
+        {
+          "text": "None of the labels change",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Which step should always be done first when labelling the sides of a right-angled triangle?",
+      "question_type": "multiple_choice",
+      "explanation": "Always identify the 90\u00b0 right angle first and label the hypotenuse opposite it.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Locate the right angle and label the hypotenuse opposite it",
+          "is_correct": true
+        },
+        {
+          "text": "Label the opposite side first regardless of the angles",
+          "is_correct": false
+        },
+        {
+          "text": "Label the horizontal side as adjacent automatically",
+          "is_correct": false
+        },
+        {
+          "text": "Calculate the perimeter first",
+          "is_correct": false
+        }
+      ]
+    }
+  ],
+  "3": [
+    {
+      "question_text": "Find the hypotenuse of a right-angled triangle when the shorter sides are 6 cm and 8 cm.",
+      "question_type": "numerical",
+      "explanation": "c = \u221a(6\u00b2 + 8\u00b2) = \u221a(36 + 64) = \u221a100 = 10 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 10,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "10 cm",
+          "is_correct": true
+        },
+        {
+          "text": "14 cm",
+          "is_correct": false
+        },
+        {
+          "text": "12 cm",
+          "is_correct": false
+        },
+        {
+          "text": "8.5 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the missing shorter side when the hypotenuse is 10 cm and the other shorter side is 6 cm.",
+      "question_type": "numerical",
+      "explanation": "a = \u221a(10\u00b2 - 6\u00b2) = \u221a(100 - 36) = \u221a64 = 8 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 8,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "8 cm",
+          "is_correct": true
+        },
+        {
+          "text": "4 cm",
+          "is_correct": false
+        },
+        {
+          "text": "11.6 cm",
+          "is_correct": false
+        },
+        {
+          "text": "7 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "A right-angled triangle has shorter sides of 5 m and 12 m. What is the length of the hypotenuse?",
+      "question_type": "numerical",
+      "explanation": "c = \u221a(5\u00b2 + 12\u00b2) = \u221a(25 + 144) = \u221a169 = 13 m.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 13,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "13 m",
+          "is_correct": true
+        },
+        {
+          "text": "17 m",
+          "is_correct": false
+        },
+        {
+          "text": "15 m",
+          "is_correct": false
+        },
+        {
+          "text": "14 m",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "A ladder is 10 m long and its foot is placed 6 m away from a vertical wall. How high up the wall does it reach?",
+      "question_type": "numerical",
+      "explanation": "Height = \u221a(10\u00b2 - 6\u00b2) = \u221a(100 - 36) = \u221a64 = 8 m.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 8,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "8 m",
+          "is_correct": true
+        },
+        {
+          "text": "11.6 m",
+          "is_correct": false
+        },
+        {
+          "text": "4 m",
+          "is_correct": false
+        },
+        {
+          "text": "9 m",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Do side lengths of 9 cm, 12 cm, and 15 cm form a right-angled triangle?",
+      "question_type": "multiple_choice",
+      "explanation": "Yes, because 9\u00b2 + 12\u00b2 = 81 + 144 = 225 = 15\u00b2.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Yes, because 9\u00b2 + 12\u00b2 = 15\u00b2",
+          "is_correct": true
+        },
+        {
+          "text": "No, because 9 + 12 does not equal 15",
+          "is_correct": false
+        },
+        {
+          "text": "No, because 15 is not divisible by 9",
+          "is_correct": false
+        },
+        {
+          "text": "Cannot be determined without angle measurements",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Why can Pythagoras' theorem NOT be applied directly to every triangle?",
+      "question_type": "multiple_choice",
+      "explanation": "Pythagoras' theorem holds strictly and specifically for right-angled triangles in planar geometry.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "It applies strictly and only to right-angled triangles",
+          "is_correct": true
+        },
+        {
+          "text": "It only works when all sides are even integers",
+          "is_correct": false
+        },
+        {
+          "text": "It requires an isosceles triangle",
+          "is_correct": false
+        },
+        {
+          "text": "It is only an approximation for large triangles",
+          "is_correct": false
+        }
+      ]
+    }
+  ],
+  "4": [
+    {
+      "question_text": "What is the correct trigonometric formula for sine (sin \u03b8)?",
+      "question_type": "multiple_choice",
+      "explanation": "sin \u03b8 = opposite / hypotenuse.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "sin \u03b8 = opposite / hypotenuse",
+          "is_correct": true
+        },
+        {
+          "text": "sin \u03b8 = adjacent / hypotenuse",
+          "is_correct": false
+        },
+        {
+          "text": "sin \u03b8 = opposite / adjacent",
+          "is_correct": false
+        },
+        {
+          "text": "sin \u03b8 = hypotenuse / opposite",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "What is the correct trigonometric formula for cosine (cos \u03b8)?",
+      "question_type": "multiple_choice",
+      "explanation": "cos \u03b8 = adjacent / hypotenuse.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "cos \u03b8 = adjacent / hypotenuse",
+          "is_correct": true
+        },
+        {
+          "text": "cos \u03b8 = opposite / hypotenuse",
+          "is_correct": false
+        },
+        {
+          "text": "cos \u03b8 = adjacent / opposite",
+          "is_correct": false
+        },
+        {
+          "text": "cos \u03b8 = hypotenuse / adjacent",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "What is the correct trigonometric formula for tangent (tan \u03b8)?",
+      "question_type": "multiple_choice",
+      "explanation": "tan \u03b8 = opposite / adjacent.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "tan \u03b8 = opposite / adjacent",
+          "is_correct": true
+        },
+        {
+          "text": "tan \u03b8 = adjacent / opposite",
+          "is_correct": false
+        },
+        {
+          "text": "tan \u03b8 = opposite / hypotenuse",
+          "is_correct": false
+        },
+        {
+          "text": "tan \u03b8 = adjacent / hypotenuse",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "In a right triangle, if the opposite side = 5 and the hypotenuse = 13, what is sin \u03b8?",
+      "question_type": "multiple_choice",
+      "explanation": "sin \u03b8 = opposite / hypotenuse = 5 / 13 \u2248 0.3846.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "5/13 (approx. 0.3846)",
+          "is_correct": true
+        },
+        {
+          "text": "12/13 (approx. 0.9231)",
+          "is_correct": false
+        },
+        {
+          "text": "5/12 (approx. 0.4167)",
+          "is_correct": false
+        },
+        {
+          "text": "13/5 (2.6)",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "If the adjacent side = 12 and the hypotenuse = 13, what is cos \u03b8?",
+      "question_type": "multiple_choice",
+      "explanation": "cos \u03b8 = adjacent / hypotenuse = 12 / 13 \u2248 0.9231.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "12/13 (approx. 0.9231)",
+          "is_correct": true
+        },
+        {
+          "text": "5/13 (approx. 0.3846)",
+          "is_correct": false
+        },
+        {
+          "text": "12/5 (2.4)",
+          "is_correct": false
+        },
+        {
+          "text": "5/12 (approx. 0.4167)",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "If opposite = 9 and adjacent = 12, what is tan \u03b8?",
+      "question_type": "numerical",
+      "explanation": "tan \u03b8 = opposite / adjacent = 9 / 12 = 3/4 = 0.75.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 0.75,
+        "tolerance": 0.01
+      },
+      "options": [
+        {
+          "text": "0.75",
+          "is_correct": true
+        },
+        {
+          "text": "1.33",
+          "is_correct": false
+        },
+        {
+          "text": "0.60",
+          "is_correct": false
+        },
+        {
+          "text": "0.80",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Which trigonometric ratio directly connects the opposite side and the hypotenuse?",
+      "question_type": "multiple_choice",
+      "explanation": "From SOH-CAH-TOA, SOH represents Sine = Opposite / Hypotenuse.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Sine",
+          "is_correct": true
+        },
+        {
+          "text": "Cosine",
+          "is_correct": false
+        },
+        {
+          "text": "Tangent",
+          "is_correct": false
+        },
+        {
+          "text": "Cotangent",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Why must the reference angle be clearly chosen before selecting a trigonometric ratio?",
+      "question_type": "multiple_choice",
+      "explanation": "The opposite and adjacent sides are defined relative to the specific acute reference angle.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "The opposite and adjacent labels depend on which acute angle is chosen",
+          "is_correct": true
+        },
+        {
+          "text": "The hypotenuse changes depending on the reference angle",
+          "is_correct": false
+        },
+        {
+          "text": "A triangle can only have one acute angle",
+          "is_correct": false
+        },
+        {
+          "text": "To decide whether the triangle is right-angled or not",
+          "is_correct": false
+        }
+      ]
+    }
+  ],
+  "5": [
+    {
+      "question_text": "In a right triangle, an angle is 30\u00b0 and the hypotenuse is 10 cm. Find the opposite side.",
+      "question_type": "numerical",
+      "explanation": "opposite = hypotenuse \u00d7 sin 30\u00b0 = 10 \u00d7 0.5 = 5 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 5,
+        "tolerance": 0.05
+      },
+      "options": [
+        {
+          "text": "5 cm",
+          "is_correct": true
+        },
+        {
+          "text": "8.66 cm",
+          "is_correct": false
+        },
+        {
+          "text": "5.77 cm",
+          "is_correct": false
+        },
+        {
+          "text": "20 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "An angle is 60\u00b0 and the hypotenuse is 20 m. Find the adjacent side.",
+      "question_type": "numerical",
+      "explanation": "adjacent = hypotenuse \u00d7 cos 60\u00b0 = 20 \u00d7 0.5 = 10 m.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 10,
+        "tolerance": 0.05
+      },
+      "options": [
+        {
+          "text": "10 m",
+          "is_correct": true
+        },
+        {
+          "text": "17.32 m",
+          "is_correct": false
+        },
+        {
+          "text": "11.55 m",
+          "is_correct": false
+        },
+        {
+          "text": "40 m",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "An angle is 45\u00b0 and the adjacent side is 9 cm. Find the opposite side.",
+      "question_type": "numerical",
+      "explanation": "opposite = adjacent \u00d7 tan 45\u00b0 = 9 \u00d7 1 = 9 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 9,
+        "tolerance": 0.05
+      },
+      "options": [
+        {
+          "text": "9 cm",
+          "is_correct": true
+        },
+        {
+          "text": "12.73 cm",
+          "is_correct": false
+        },
+        {
+          "text": "6.36 cm",
+          "is_correct": false
+        },
+        {
+          "text": "18 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "An angle is 35\u00b0 and the hypotenuse is 12 cm. Find the opposite side to one decimal place.",
+      "question_type": "numerical",
+      "explanation": "opposite = 12 \u00d7 sin 35\u00b0 \u2248 12 \u00d7 0.5736 \u2248 6.9 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 6.9,
+        "tolerance": 0.15
+      },
+      "options": [
+        {
+          "text": "6.9 cm",
+          "is_correct": true
+        },
+        {
+          "text": "9.8 cm",
+          "is_correct": false
+        },
+        {
+          "text": "8.4 cm",
+          "is_correct": false
+        },
+        {
+          "text": "7.5 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "An angle is 25\u00b0 and the hypotenuse is 16 cm. Find the adjacent side to one decimal place.",
+      "question_type": "numerical",
+      "explanation": "adjacent = 16 \u00d7 cos 25\u00b0 \u2248 16 \u00d7 0.9063 \u2248 14.5 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 14.5,
+        "tolerance": 0.15
+      },
+      "options": [
+        {
+          "text": "14.5 cm",
+          "is_correct": true
+        },
+        {
+          "text": "6.8 cm",
+          "is_correct": false
+        },
+        {
+          "text": "17.7 cm",
+          "is_correct": false
+        },
+        {
+          "text": "12.2 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "What is the systematic rule for choosing between sine, cosine, and tangent when calculating an unknown side?",
+      "question_type": "multiple_choice",
+      "explanation": "Mark the reference angle, label sides, and pick the ratio that connects the known side with the unknown side.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Identify the given side and unknown side, then select the ratio containing both",
+          "is_correct": true
+        },
+        {
+          "text": "Always use sine first because it comes first in SOH-CAH-TOA",
+          "is_correct": false
+        },
+        {
+          "text": "Use tangent only if the hypotenuse is longer than 20 cm",
+          "is_correct": false
+        },
+        {
+          "text": "Use cosine whenever the unknown side is vertical",
+          "is_correct": false
+        }
+      ]
+    }
+  ],
+  "6": [
+    {
+      "question_text": "In a right triangle, the opposite side is 6 cm and the hypotenuse is 12 cm. Find the acute angle \u03b8.",
+      "question_type": "numerical",
+      "explanation": "sin \u03b8 = 6 / 12 = 0.5 => \u03b8 = sin\u207b\u00b9(0.5) = 30\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 30,
+        "tolerance": 0.1
+      },
+      "options": [
+        {
+          "text": "30\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "60\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "45\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "15\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "In a right triangle, the adjacent side is 5 cm and the hypotenuse is 10 cm. Find the acute angle \u03b8.",
+      "question_type": "numerical",
+      "explanation": "cos \u03b8 = 5 / 10 = 0.5 => \u03b8 = cos\u207b\u00b9(0.5) = 60\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 60,
+        "tolerance": 0.1
+      },
+      "options": [
+        {
+          "text": "60\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "30\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "45\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "50\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "In a right triangle, the opposite side is 8 cm and the adjacent side is 8 cm. Find the acute angle \u03b8.",
+      "question_type": "numerical",
+      "explanation": "tan \u03b8 = 8 / 8 = 1 => \u03b8 = tan\u207b\u00b9(1) = 45\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 45,
+        "tolerance": 0.1
+      },
+      "options": [
+        {
+          "text": "45\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "90\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "30\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "60\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "In a right triangle, opposite = 7 cm and hypotenuse = 11 cm. Find the angle to one decimal place.",
+      "question_type": "numerical",
+      "explanation": "sin \u03b8 = 7 / 11 \u2248 0.6364 => \u03b8 = sin\u207b\u00b9(0.6364) \u2248 39.5\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 39.5,
+        "tolerance": 0.2
+      },
+      "options": [
+        {
+          "text": "39.5\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "50.5\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "32.5\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "41.2\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "In a right triangle, adjacent = 9 cm and hypotenuse = 13 cm. Find the angle to one decimal place.",
+      "question_type": "numerical",
+      "explanation": "cos \u03b8 = 9 / 13 \u2248 0.6923 => \u03b8 = cos\u207b\u00b9(0.6923) \u2248 46.2\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 46.2,
+        "tolerance": 0.2
+      },
+      "options": [
+        {
+          "text": "46.2\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "43.8\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "34.7\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "55.3\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "What is the fundamental difference between sin \u03b8 and sin\u207b\u00b9(x)?",
+      "question_type": "multiple_choice",
+      "explanation": "sin \u03b8 calculates a ratio from an angle, while sin\u207b\u00b9(x) calculates an angle from a known ratio.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "sin \u03b8 takes an angle and produces a ratio; sin\u207b\u00b9(x) takes a ratio and produces an angle",
+          "is_correct": true
+        },
+        {
+          "text": "sin\u207b\u00b9(x) means 1 divided by sin \u03b8",
+          "is_correct": false
+        },
+        {
+          "text": "sin \u03b8 only works in degrees while sin\u207b\u00b9 only works in radians",
+          "is_correct": false
+        },
+        {
+          "text": "There is no difference; they are interchangeable notations",
+          "is_correct": false
+        }
+      ]
+    }
+  ],
+  "7": [
+    {
+      "question_text": "What is the difference between an angle of elevation and an angle of depression?",
+      "question_type": "multiple_choice",
+      "explanation": "Elevation is measured upward from the horizontal, whereas depression is measured downward from the horizontal.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Elevation is measured upward from horizontal; depression is measured downward from horizontal",
+          "is_correct": true
+        },
+        {
+          "text": "Elevation is measured from the ground; depression is measured from the top of the head",
+          "is_correct": false
+        },
+        {
+          "text": "Elevation is always greater than 45\u00b0; depression is always less than 45\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "Elevation uses sine; depression always uses cosine",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "A student stands 15 m from a tree. The angle of elevation to the top is 40\u00b0. Find the height of the tree above eye level to one decimal place.",
+      "question_type": "numerical",
+      "explanation": "Height = 15 \u00d7 tan 40\u00b0 \u2248 15 \u00d7 0.8391 \u2248 12.6 m.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 12.6,
+        "tolerance": 0.2
+      },
+      "options": [
+        {
+          "text": "12.6 m",
+          "is_correct": true
+        },
+        {
+          "text": "17.9 m",
+          "is_correct": false
+        },
+        {
+          "text": "9.6 m",
+          "is_correct": false
+        },
+        {
+          "text": "11.5 m",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "A vertical pole is 10 m tall above an observer's eye level. The angle of elevation to the top is 30\u00b0. Find the horizontal distance to the pole.",
+      "question_type": "numerical",
+      "explanation": "distance = 10 / tan 30\u00b0 = 10 / 0.5774 \u2248 17.3 m.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 17.3,
+        "tolerance": 0.2
+      },
+      "options": [
+        {
+          "text": "17.3 m",
+          "is_correct": true
+        },
+        {
+          "text": "5.8 m",
+          "is_correct": false
+        },
+        {
+          "text": "20.0 m",
+          "is_correct": false
+        },
+        {
+          "text": "14.1 m",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "A 20 m cable makes an angle of 60\u00b0 with the horizontal ground. Find the vertical height reached by the cable.",
+      "question_type": "numerical",
+      "explanation": "vertical height = 20 \u00d7 sin 60\u00b0 = 20 \u00d7 0.8660 \u2248 17.3 m.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 17.3,
+        "tolerance": 0.2
+      },
+      "options": [
+        {
+          "text": "17.3 m",
+          "is_correct": true
+        },
+        {
+          "text": "10.0 m",
+          "is_correct": false
+        },
+        {
+          "text": "34.6 m",
+          "is_correct": false
+        },
+        {
+          "text": "14.1 m",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Why is observer eye height important when determining the total height of a building?",
+      "question_type": "multiple_choice",
+      "explanation": "The trigonometry calculation provides height above the eye level, so eye height must be added to get total ground height.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Trigonometric calculation gives height above eye level, which must be added to eye height for total height",
+          "is_correct": true
+        },
+        {
+          "text": "Eye height changes the speed of light along the line of sight",
+          "is_correct": false
+        },
+        {
+          "text": "Because buildings must always be measured from the roof downwards",
+          "is_correct": false
+        },
+        {
+          "text": "It is only necessary if the observer is taller than 2 metres",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "An observer on a cliff looks down at a boat on the water. What geometric angle does the angle of depression equal via alternate interior angles?",
+      "question_type": "multiple_choice",
+      "explanation": "The angle of depression from observer to boat equals the angle of elevation from boat to observer (alternate interior angles between parallel horizontals).",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "The angle of elevation from the boat up to the observer",
+          "is_correct": true
+        },
+        {
+          "text": "90\u00b0 minus the angle of elevation",
+          "is_correct": false
+        },
+        {
+          "text": "180\u00b0 minus the angle of elevation",
+          "is_correct": false
+        },
+        {
+          "text": "Twice the angle of elevation",
+          "is_correct": false
+        }
+      ]
+    }
+  ],
+  "8": [
+    {
+      "question_text": "Classify an angle of 135\u00b0.",
+      "question_type": "multiple_choice",
+      "explanation": "An angle between 90\u00b0 and 180\u00b0 is obtuse.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Obtuse",
+          "is_correct": true
+        },
+        {
+          "text": "Acute",
+          "is_correct": false
+        },
+        {
+          "text": "Reflex",
+          "is_correct": false
+        },
+        {
+          "text": "Right",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the third angle of a triangle with angles 45\u00b0 and 65\u00b0.",
+      "question_type": "numerical",
+      "explanation": "180\u00b0 - 45\u00b0 - 65\u00b0 = 70\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 70,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "70\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "80\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "60\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "90\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "A right-angled triangle ABC has angle B = 90\u00b0. Which side is the hypotenuse?",
+      "question_type": "multiple_choice",
+      "explanation": "Side AC (or CA) is opposite the right angle B, so it is the hypotenuse.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "Side AC",
+          "is_correct": true
+        },
+        {
+          "text": "Side AB",
+          "is_correct": false
+        },
+        {
+          "text": "Side BC",
+          "is_correct": false
+        },
+        {
+          "text": "Cannot be determined",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "State Pythagoras' theorem for a right-angled triangle with shorter sides a, b and hypotenuse c.",
+      "question_type": "multiple_choice",
+      "explanation": "a\u00b2 + b\u00b2 = c\u00b2.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "a\u00b2 + b\u00b2 = c\u00b2",
+          "is_correct": true
+        },
+        {
+          "text": "a + b = c",
+          "is_correct": false
+        },
+        {
+          "text": "a\u00b2 - b\u00b2 = c\u00b2",
+          "is_correct": false
+        },
+        {
+          "text": "a\u00b2 + b\u00b2 + c\u00b2 = 180",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the hypotenuse when the shorter sides are 9 cm and 12 cm.",
+      "question_type": "numerical",
+      "explanation": "\u221a(9\u00b2 + 12\u00b2) = \u221a(81 + 144) = \u221a225 = 15 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 15,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "15 cm",
+          "is_correct": true
+        },
+        {
+          "text": "21 cm",
+          "is_correct": false
+        },
+        {
+          "text": "18 cm",
+          "is_correct": false
+        },
+        {
+          "text": "13 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the missing shorter side when the hypotenuse is 17 cm and the other shorter side is 8 cm.",
+      "question_type": "numerical",
+      "explanation": "\u221a(17\u00b2 - 8\u00b2) = \u221a(289 - 64) = \u221a225 = 15 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 15,
+        "tolerance": 0
+      },
+      "options": [
+        {
+          "text": "15 cm",
+          "is_correct": true
+        },
+        {
+          "text": "9 cm",
+          "is_correct": false
+        },
+        {
+          "text": "25 cm",
+          "is_correct": false
+        },
+        {
+          "text": "12 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Write the formula for sin \u03b8.",
+      "question_type": "multiple_choice",
+      "explanation": "sin \u03b8 = opposite / hypotenuse.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "opposite / hypotenuse",
+          "is_correct": true
+        },
+        {
+          "text": "adjacent / hypotenuse",
+          "is_correct": false
+        },
+        {
+          "text": "opposite / adjacent",
+          "is_correct": false
+        },
+        {
+          "text": "hypotenuse / adjacent",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Write the formula for cos \u03b8.",
+      "question_type": "multiple_choice",
+      "explanation": "cos \u03b8 = adjacent / hypotenuse.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "adjacent / hypotenuse",
+          "is_correct": true
+        },
+        {
+          "text": "opposite / hypotenuse",
+          "is_correct": false
+        },
+        {
+          "text": "adjacent / opposite",
+          "is_correct": false
+        },
+        {
+          "text": "hypotenuse / opposite",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Write the formula for tan \u03b8.",
+      "question_type": "multiple_choice",
+      "explanation": "tan \u03b8 = opposite / adjacent.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "opposite / adjacent",
+          "is_correct": true
+        },
+        {
+          "text": "adjacent / opposite",
+          "is_correct": false
+        },
+        {
+          "text": "opposite / hypotenuse",
+          "is_correct": false
+        },
+        {
+          "text": "hypotenuse / opposite",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the opposite side when the hypotenuse is 10 cm and the angle is 30\u00b0.",
+      "question_type": "numerical",
+      "explanation": "10 \u00d7 sin 30\u00b0 = 10 \u00d7 0.5 = 5 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 5,
+        "tolerance": 0.05
+      },
+      "options": [
+        {
+          "text": "5 cm",
+          "is_correct": true
+        },
+        {
+          "text": "8.66 cm",
+          "is_correct": false
+        },
+        {
+          "text": "10 cm",
+          "is_correct": false
+        },
+        {
+          "text": "20 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the adjacent side when the hypotenuse is 12 cm and the angle is 60\u00b0.",
+      "question_type": "numerical",
+      "explanation": "12 \u00d7 cos 60\u00b0 = 12 \u00d7 0.5 = 6 cm.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 6,
+        "tolerance": 0.05
+      },
+      "options": [
+        {
+          "text": "6 cm",
+          "is_correct": true
+        },
+        {
+          "text": "10.39 cm",
+          "is_correct": false
+        },
+        {
+          "text": "8 cm",
+          "is_correct": false
+        },
+        {
+          "text": "24 cm",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the angle when opposite = 5 cm and hypotenuse = 10 cm.",
+      "question_type": "numerical",
+      "explanation": "sin\u207b\u00b9(5/10) = sin\u207b\u00b9(0.5) = 30\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 30,
+        "tolerance": 0.1
+      },
+      "options": [
+        {
+          "text": "30\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "60\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "45\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "50\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Find the angle when opposite = 8 cm and adjacent = 8 cm.",
+      "question_type": "numerical",
+      "explanation": "tan\u207b\u00b9(8/8) = tan\u207b\u00b9(1) = 45\u00b0.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 45,
+        "tolerance": 0.1
+      },
+      "options": [
+        {
+          "text": "45\u00b0",
+          "is_correct": true
+        },
+        {
+          "text": "90\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "30\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "60\u00b0",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "A person stands 10 m from a vertical pole. The angle of elevation to the top is 45\u00b0. Find the height above eye level.",
+      "question_type": "numerical",
+      "explanation": "10 \u00d7 tan 45\u00b0 = 10 \u00d7 1 = 10 m.",
+      "marks": 1.0,
+      "metadata": {
+        "correct_value": 10,
+        "tolerance": 0.1
+      },
+      "options": [
+        {
+          "text": "10 m",
+          "is_correct": true
+        },
+        {
+          "text": "14.1 m",
+          "is_correct": false
+        },
+        {
+          "text": "7.07 m",
+          "is_correct": false
+        },
+        {
+          "text": "20 m",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "question_text": "Explain one assumption that is typically made when solving a real-life height-and-distance problem.",
+      "question_type": "multiple_choice",
+      "explanation": "Standard assumptions include: level ground, vertical upright structures (90\u00b0 angle to ground), straight line of sight, and either ignoring eye height or adding it explicitly.",
+      "marks": 1.0,
+      "options": [
+        {
+          "text": "The ground is horizontal and level, and the measured structure is strictly vertical (at 90\u00b0)",
+          "is_correct": true
+        },
+        {
+          "text": "The speed of sound equals the speed of light during measurement",
+          "is_correct": false
+        },
+        {
+          "text": "The angle of elevation must always be between 45\u00b0 and 90\u00b0",
+          "is_correct": false
+        },
+        {
+          "text": "Sunlight always reflects off the top of the structure at 45\u00b0",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}

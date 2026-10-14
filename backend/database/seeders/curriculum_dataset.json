@@ -1,0 +1,580 @@
+[
+  {
+    "week_number": 1,
+    "title": "Week 1: Foundation",
+    "slug": "week-1-foundation",
+    "description": "Meaning of trigonometry, angles, types of triangles, and properties of triangles.",
+    "learning_objectives": [
+      "Explain the meaning and purpose of trigonometry in simple terms.",
+      "Identify and measure angles in degrees.",
+      "Classify angles as acute, right, obtuse, straight, reflex, or complete angles.",
+      "Identify triangles and classify them by their sides and angles.",
+      "State and use the angle-sum property of a triangle.",
+      "Recognize that the longest side of a triangle is opposite its largest angle.",
+      "Solve simple problems involving missing angles in triangles."
+    ],
+    "lessons": [
+      {
+        "order": 1,
+        "lesson_num": "1.1",
+        "title": "Lesson 1.1: What is trigonometry?",
+        "slug": "lesson-1-1-what-is-trigonometry",
+        "summary": "Trigonometry is a branch of mathematics that studies relationships between the angles and sides of triangles. The word is often associated with measuring triangles.",
+        "content": "### Meaning\n\nTrigonometry is a branch of mathematics that studies relationships between the angles and sides of triangles. The word is often associated with measuring triangles.\n\nTrigonometry helps us calculate a side or an angle when we know enough information about a triangle. It is useful when direct measurement is difficult.\n\n### Uses of trigonometry\n\nTrigonometry can help people:\n- Estimate the height of a tree, building, or hill.\n- Calculate distances that are difficult to measure directly.\n- Support surveying, construction, architecture, navigation, engineering, astronomy, and mapping.\n- Analyse slopes, ramps, roofs, and lines of sight.\n\n### Example\n\nSuppose a learner wants to estimate the height of a tall tree. Measuring the tree from its base to its top may be difficult. If the learner can measure a horizontal distance from the tree and the angle from the ground to the top, trigonometry can help estimate the height.\n\nAt this stage, learners only need to understand the idea; the calculation methods will be taught in later weeks.\n\n### Check your understanding\n1. In your own words, what does trigonometry study?\n2. Give two situations in which trigonometry may be useful.\n3. Why might trigonometry be more practical than trying to climb a tall tree to measure its height?",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of What is trigonometry?."
+        ]
+      },
+      {
+        "order": 2,
+        "lesson_num": "1.2",
+        "title": "Lesson 1.2: Angles and their measurement",
+        "slug": "lesson-1-2-angles-and-their-measurement",
+        "summary": "An angle is formed when two rays or line segments meet at a common endpoint. The common endpoint is called the **vertex**. The two rays are the **arms** of the angle.",
+        "content": "### Meaning of an angle\n\nAn angle is formed when two rays or line segments meet at a common endpoint. The common endpoint is called the **vertex**. The two rays are the **arms** of the angle.\n\nAngles are commonly measured in degrees, written using the symbol `\u00b0`. One complete turn is `360\u00b0`, a half-turn is `180\u00b0`, and a quarter-turn is `90\u00b0`.\n\n### Types of angles\n\n- **Zero angle:** `0\u00b0`\n- **Acute angle:** greater than `0\u00b0` but less than `90\u00b0`\n- **Right angle:** exactly `90\u00b0`\n- **Obtuse angle:** greater than `90\u00b0` but less than `180\u00b0`\n- **Straight angle:** exactly `180\u00b0`\n- **Reflex angle:** greater than `180\u00b0` but less than `360\u00b0`\n- **Complete angle:** exactly `360\u00b0`\n\n### Worked examples\n\n**Example 1:** Classify `35\u00b0`.\n\nSince `0\u00b0 < 35\u00b0 < 90\u00b0`, it is an acute angle.\n\n**Example 2:** Classify `125\u00b0`.\n\nSince `90\u00b0 < 125\u00b0 < 180\u00b0`, it is an obtuse angle.\n\n**Example 3:** A learner turns through a half-turn. How many degrees is the turn?\n\nA half-turn is `180\u00b0`.\n\n### Measuring angles with a protractor\n\n1. Place the centre mark of the protractor on the vertex.\n2. Align the baseline with one arm of the angle.\n3. Read the scale beginning at `0\u00b0` on the aligned arm.\n4. Record the measurement and include the degree symbol.\n\n### Check your understanding\nClassify each angle: `25\u00b0`, `90\u00b0`, `145\u00b0`, `180\u00b0`, `230\u00b0`, and `360\u00b0`.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Angles and their measurement."
+        ]
+      },
+      {
+        "order": 3,
+        "lesson_num": "1.3",
+        "title": "Lesson 1.3: Types of triangles by their sides",
+        "slug": "lesson-1-3-types-of-triangles-by-their-sides",
+        "summary": "A triangle is a closed two-dimensional shape with three straight sides, three vertices, and three interior angles.",
+        "content": "A triangle is a closed two-dimensional shape with three straight sides, three vertices, and three interior angles.\n\nTriangles can be classified by their side lengths.\n\n### Equilateral triangle\n\nAn equilateral triangle has three equal sides. Its three interior angles are equal, and each is `60\u00b0`.\n\n### Isosceles triangle\n\nAn isosceles triangle has at least two equal sides. The angles opposite the equal sides are equal.\n\n### Scalene triangle\n\nA scalene triangle has three sides of different lengths. Its angles are also different.\n\n### Worked example\n\nA triangle has side lengths `5 cm`, `5 cm`, and `8 cm`. Two sides are equal, so the triangle is isosceles.\n\n### Check your understanding\n1. What is the defining property of an equilateral triangle?\n2. A triangle has sides of `4 cm`, `6 cm`, and `7 cm`. Classify it by its sides.\n3. What can you say about the base angles of an isosceles triangle?",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Types of triangles by their sides."
+        ]
+      },
+      {
+        "order": 4,
+        "lesson_num": "1.4",
+        "title": "Lesson 1.4: Types of triangles by their angles",
+        "slug": "lesson-1-4-types-of-triangles-by-their-angles",
+        "summary": "Triangles can also be classified by their interior angles.",
+        "content": "Triangles can also be classified by their interior angles.\n\n- **Acute-angled triangle:** all three angles are less than `90\u00b0`.\n- **Right-angled triangle:** one angle is exactly `90\u00b0`.\n- **Obtuse-angled triangle:** one angle is greater than `90\u00b0`.\n\nA triangle cannot have two right angles, and it cannot have more than one obtuse angle, because the sum of its interior angles is `180\u00b0`.\n\n### Worked examples\n\n**Example 1:** A triangle has angles `50\u00b0`, `60\u00b0`, and `70\u00b0`. All are less than `90\u00b0`, so it is acute-angled.\n\n**Example 2:** A triangle has angles `90\u00b0`, `35\u00b0`, and `55\u00b0`. It is right-angled.\n\n**Example 3:** A triangle has angles `110\u00b0`, `30\u00b0`, and `40\u00b0`. It is obtuse-angled.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Types of triangles by their angles."
+        ]
+      },
+      {
+        "order": 5,
+        "lesson_num": "1.5",
+        "title": "Lesson 1.5: Properties of triangles",
+        "slug": "lesson-1-5-properties-of-triangles",
+        "summary": "For any triangle with interior angles `A`, `B`, and `C`:",
+        "content": "### Property 1: Interior angles add up to `180\u00b0`\n\nFor any triangle with interior angles `A`, `B`, and `C`:\n\n`A + B + C = 180\u00b0`\n\n### Worked example\n\nA triangle has two angles measuring `48\u00b0` and `67\u00b0`. Find the third angle.\n\nStep 1: Let the missing angle be `x`.\n\nStep 2: Use the angle-sum property:\n\n`48\u00b0 + 67\u00b0 + x = 180\u00b0`\n\nStep 3: Add the known angles:\n\n`115\u00b0 + x = 180\u00b0`\n\nStep 4: Subtract `115\u00b0` from both sides:\n\n`x = 65\u00b0`\n\nThe missing angle is `65\u00b0`.\n\n### Property 2: Exterior angle property\n\nAn exterior angle of a triangle equals the sum of the two opposite interior angles that are not adjacent to it.\n\nFor example, if the two opposite interior angles are `45\u00b0` and `70\u00b0`, the exterior angle is:\n\n`45\u00b0 + 70\u00b0 = 115\u00b0`\n\n### Property 3: Side-angle relationship\n\nIn a triangle, the longest side is opposite the largest angle, and the shortest side is opposite the smallest angle.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Properties of triangles."
+        ]
+      }
+    ]
+  },
+  {
+    "week_number": 2,
+    "title": "Week 2: Right-Angled Triangles",
+    "slug": "week-2-right-angled-triangles",
+    "description": "Right angle, hypotenuse, opposite side, and adjacent side.",
+    "learning_objectives": [
+      "Identify a right angle in a triangle.",
+      "Identify the hypotenuse correctly.",
+      "Identify the opposite and adjacent sides relative to a chosen acute angle.",
+      "Explain why opposite and adjacent labels depend on the reference angle.",
+      "Label a right-angled triangle accurately."
+    ],
+    "lessons": [
+      {
+        "order": 1,
+        "lesson_num": "2.1",
+        "title": "Lesson 2.1: Understanding a right-angled triangle",
+        "slug": "lesson-2-1-understanding-a-right-angled-triangle",
+        "summary": "A right-angled triangle is a triangle containing one angle of exactly `90\u00b0`. A small square is often drawn at the right-angle vertex to show this.",
+        "content": "A right-angled triangle is a triangle containing one angle of exactly `90\u00b0`. A small square is often drawn at the right-angle vertex to show this.\n\nThe two sides that meet to form the right angle are the shorter perpendicular sides. The side opposite the right angle is the **hypotenuse**.\n\n### Important rule\n\nThe hypotenuse is always:\n- Opposite the `90\u00b0` angle.\n- The longest side of the right-angled triangle.\n- The side that does not form one of the two arms of the right angle.\n\nDo not identify the hypotenuse by guessing which side looks longest in a drawing. Find the right angle first, then identify the side opposite it.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Understanding a right-angled triangle."
+        ]
+      },
+      {
+        "order": 2,
+        "lesson_num": "2.2",
+        "title": "Lesson 2.2: Opposite and adjacent sides",
+        "slug": "lesson-2-2-opposite-and-adjacent-sides",
+        "summary": "Choose one of the two acute angles in a right-angled triangle as the **reference angle**. The labels opposite and adjacent are defined relative to that angle.",
+        "content": "Choose one of the two acute angles in a right-angled triangle as the **reference angle**. The labels opposite and adjacent are defined relative to that angle.\n\n- **Opposite side:** the side directly across from the reference angle.\n- **Adjacent side:** the side next to the reference angle that is not the hypotenuse.\n- **Hypotenuse:** the side opposite the right angle.\n\n### Worked labelling example\n\nImagine triangle `ABC`, where angle `C = 90\u00b0`. Therefore, side `AB` is the hypotenuse.\n\nIf the reference angle is `A`:\n- Opposite side: `BC`\n- Adjacent side: `AC`\n- Hypotenuse: `AB`\n\nIf the reference angle changes to `B`:\n- Opposite side: `AC`\n- Adjacent side: `BC`\n- Hypotenuse: `AB`\n\nNotice that the hypotenuse remains the same, but the opposite and adjacent sides switch.\n\n### Common mistake\n\nCalling a particular side \u201cthe opposite side\u201d without stating the reference angle can lead to confusion. Always mark or name the reference angle first.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Opposite and adjacent sides."
+        ]
+      },
+      {
+        "order": 3,
+        "lesson_num": "2.3",
+        "title": "Lesson 2.3: Reading and labelling triangle diagrams",
+        "slug": "lesson-2-3-reading-and-labelling-triangle-diagrams",
+        "summary": "When a problem gives a right-angled triangle:",
+        "content": "When a problem gives a right-angled triangle:\n\n1. Find the right-angle marker.\n2. Identify the hypotenuse as the side opposite the right angle.\n3. Find the acute angle named in the question.\n4. Label the side across from that angle as opposite.\n5. Label the remaining non-hypotenuse side as adjacent.\n6. Check that each side has been labelled consistently.\n\n### Guided examples\n\n**Example 1:** Triangle `PQR` has `angle Q = 90\u00b0`. Which side is the hypotenuse?\n\nThe side opposite angle `Q` is `PR`; therefore, `PR` is the hypotenuse.\n\n**Example 2:** In the same triangle, the reference angle is `P`. Identify opposite and adjacent sides.\n\n- Opposite: `QR`\n- Adjacent: `PQ`\n- Hypotenuse: `PR`\n\n**Example 3:** The reference angle changes to `R`. Identify opposite and adjacent sides.\n\n- Opposite: `PQ`\n- Adjacent: `QR`\n- Hypotenuse: `PR`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Reading and labelling triangle diagrams."
+        ]
+      }
+    ]
+  },
+  {
+    "week_number": 3,
+    "title": "Week 3: Pythagoras' Theorem",
+    "slug": "week-3-pythagoras-theorem",
+    "description": "Finding unknown sides and applications.",
+    "learning_objectives": [
+      "State Pythagoras' theorem.",
+      "Recognize that it applies to right-angled triangles.",
+      "Find the hypotenuse when both shorter sides are known.",
+      "Find a missing shorter side when the hypotenuse and other shorter side are known.",
+      "Include correct units in answers and check whether the answer is reasonable."
+    ],
+    "lessons": [
+      {
+        "order": 1,
+        "lesson_num": "3.1",
+        "title": "Lesson 3.1: The theorem",
+        "slug": "lesson-3-1-the-theorem",
+        "summary": "Pythagoras' theorem states that, in a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.",
+        "content": "Pythagoras' theorem states that, in a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.\n\nIf the shorter sides are `a` and `b`, and the hypotenuse is `c`:\n\n`a\u00b2 + b\u00b2 = c\u00b2`\n\nThis relationship applies only to right-angled triangles.\n\n### What does \u201csquared\u201d mean?\n\nSquaring a number means multiplying it by itself:\n- `3\u00b2 = 3 \u00d7 3 = 9`\n- `5\u00b2 = 5 \u00d7 5 = 25`\n- `10\u00b2 = 10 \u00d7 10 = 100`\n\nThe square root reverses squaring:\n- `\u221a25 = 5`\n- `\u221a100 = 10`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of The theorem."
+        ]
+      },
+      {
+        "order": 2,
+        "lesson_num": "3.2",
+        "title": "Lesson 3.2: Finding the hypotenuse",
+        "slug": "lesson-3-2-finding-the-hypotenuse",
+        "summary": "A right-angled triangle has shorter sides of `3 cm` and `4 cm`. Find the hypotenuse.",
+        "content": "### Worked example\n\nA right-angled triangle has shorter sides of `3 cm` and `4 cm`. Find the hypotenuse.\n\nStep 1: Write the formula.\n\n`a\u00b2 + b\u00b2 = c\u00b2`\n\nStep 2: Substitute the values.\n\n`3\u00b2 + 4\u00b2 = c\u00b2`\n\nStep 3: Square each value.\n\n`9 + 16 = c\u00b2`\n\nStep 4: Add.\n\n`25 = c\u00b2`\n\nStep 5: Take the positive square root because a length is positive.\n\n`c = \u221a25 = 5 cm`\n\nThe hypotenuse is `5 cm`.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding the hypotenuse."
+        ]
+      },
+      {
+        "order": 3,
+        "lesson_num": "3.3",
+        "title": "Lesson 3.3: Finding a shorter side",
+        "slug": "lesson-3-3-finding-a-shorter-side",
+        "summary": "When the hypotenuse and one shorter side are known, rearrange the theorem.",
+        "content": "When the hypotenuse and one shorter side are known, rearrange the theorem.\n\nIf the unknown side is `a`:\n\n`a\u00b2 = c\u00b2 \u2212 b\u00b2`\n\n### Worked example\n\nA right-angled triangle has hypotenuse `13 cm` and one shorter side `5 cm`. Find the other shorter side.\n\nStep 1:\n\n`a\u00b2 + 5\u00b2 = 13\u00b2`\n\nStep 2:\n\n`a\u00b2 + 25 = 169`\n\nStep 3: Subtract `25`.\n\n`a\u00b2 = 144`\n\nStep 4: Take the positive square root.\n\n`a = \u221a144 = 12 cm`\n\nThe missing side is `12 cm`.\n\n### Check the result\n\nThe sides `5`, `12`, and `13` satisfy the theorem because:\n\n`5\u00b2 + 12\u00b2 = 25 + 144 = 169 = 13\u00b2`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding a shorter side."
+        ]
+      },
+      {
+        "order": 4,
+        "lesson_num": "3.4",
+        "title": "Lesson 3.4: Real-life applications",
+        "slug": "lesson-3-4-real-life-applications",
+        "summary": "A ladder reaches a point `4 m` above the ground. Its foot is `3 m` from the wall. Assuming the wall and ground are perpendicular, find the ladder's length.",
+        "content": "### Example: A ladder against a wall\n\nA ladder reaches a point `4 m` above the ground. Its foot is `3 m` from the wall. Assuming the wall and ground are perpendicular, find the ladder's length.\n\nThe wall and ground form the shorter sides of a right-angled triangle. The ladder is the hypotenuse.\n\n`L\u00b2 = 3\u00b2 + 4\u00b2`\n\n`L\u00b2 = 9 + 16 = 25`\n\n`L = \u221a25 = 5 m`\n\nThe ladder is `5 m` long.\n\n### Example: Checking a triangle\n\nA triangle has side lengths `6 cm`, `8 cm`, and `10 cm`. Is it right-angled?\n\nUse the longest side as the possible hypotenuse:\n\n`6\u00b2 + 8\u00b2 = 36 + 64 = 100`\n\n`10\u00b2 = 100`\n\nThe values are equal, so the triangle is right-angled.\n\n### Common mistakes\n- Applying the theorem to a triangle that is not right-angled.\n- Treating the shortest side as the hypotenuse.\n- Adding the squares when the unknown is a shorter side.\n- Forgetting the square root at the final step.\n- Giving an answer without units.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Real-life applications."
+        ]
+      }
+    ]
+  },
+  {
+    "week_number": 4,
+    "title": "Week 4: Trigonometric Ratios",
+    "slug": "week-4-trigonometric-ratios",
+    "description": "Sine, cosine, tangent, and SOH-CAH-TOA.",
+    "learning_objectives": [
+      "Define sine, cosine, and tangent for an acute angle in a right-angled triangle.",
+      "Recall SOH-CAH-TOA.",
+      "Select the appropriate ratio from the sides given and required.",
+      "Use a calculator in degree mode to evaluate basic trigonometric ratios.",
+      "Recognize that the ratios depend on the chosen angle."
+    ],
+    "lessons": [
+      {
+        "order": 1,
+        "lesson_num": "4.1",
+        "title": "Lesson 4.1: Why use trigonometric ratios?",
+        "slug": "lesson-4-1-why-use-trigonometric-ratios",
+        "summary": "Pythagoras' theorem connects the three side lengths of a right-angled triangle. Trigonometric ratios connect a chosen acute angle with ratios of side lengths.",
+        "content": "Pythagoras' theorem connects the three side lengths of a right-angled triangle. Trigonometric ratios connect a chosen acute angle with ratios of side lengths.\n\nBefore selecting a ratio, label the opposite side, adjacent side, and hypotenuse relative to the given angle.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Why use trigonometric ratios?."
+        ]
+      },
+      {
+        "order": 2,
+        "lesson_num": "4.2",
+        "title": "Lesson 4.2: Sine",
+        "slug": "lesson-4-2-sine",
+        "summary": "Sine is abbreviated as `sin`.",
+        "content": "Sine is abbreviated as `sin`.\n\nFor an acute angle `\u03b8` in a right-angled triangle:\n\n`sin \u03b8 = opposite / hypotenuse`\n\nThe memory aid **SOH** means:\n\n**S**ine = **O**pposite / **H**ypotenuse.\n\n### Example\n\nRelative to angle `\u03b8`, the opposite side is `3 cm` and the hypotenuse is `5 cm`.\n\n`sin \u03b8 = 3/5 = 0.6`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Sine."
+        ]
+      },
+      {
+        "order": 3,
+        "lesson_num": "4.3",
+        "title": "Lesson 4.3: Cosine",
+        "slug": "lesson-4-3-cosine",
+        "summary": "Cosine is abbreviated as `cos`.",
+        "content": "Cosine is abbreviated as `cos`.\n\n`cos \u03b8 = adjacent / hypotenuse`\n\nThe memory aid **CAH** means:\n\n**C**osine = **A**djacent / **H**ypotenuse.\n\n### Example\n\nRelative to angle `\u03b8`, the adjacent side is `4 cm` and the hypotenuse is `5 cm`.\n\n`cos \u03b8 = 4/5 = 0.8`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Cosine."
+        ]
+      },
+      {
+        "order": 4,
+        "lesson_num": "4.4",
+        "title": "Lesson 4.4: Tangent",
+        "slug": "lesson-4-4-tangent",
+        "summary": "Tangent is abbreviated as `tan`.",
+        "content": "Tangent is abbreviated as `tan`.\n\n`tan \u03b8 = opposite / adjacent`\n\nThe memory aid **TOA** means:\n\n**T**angent = **O**pposite / **A**djacent.\n\n### Example\n\nRelative to angle `\u03b8`, the opposite side is `3 cm` and the adjacent side is `4 cm`.\n\n`tan \u03b8 = 3/4 = 0.75`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Tangent."
+        ]
+      },
+      {
+        "order": 5,
+        "lesson_num": "4.5",
+        "title": "Lesson 4.5: Using SOH-CAH-TOA to choose a ratio",
+        "slug": "lesson-4-5-using-soh-cah-toa-to-choose-a-ratio",
+        "summary": "Remember:",
+        "content": "Remember:\n\n- `sin \u03b8 = opposite / hypotenuse`\n- `cos \u03b8 = adjacent / hypotenuse`\n- `tan \u03b8 = opposite / adjacent`\n\n### Worked example\n\nA right-angled triangle has, relative to angle `\u03b8`, an opposite side of `6 cm`, an adjacent side of `8 cm`, and a hypotenuse of `10 cm`. Find the three ratios.\n\n`sin \u03b8 = 6/10 = 0.6`\n\n`cos \u03b8 = 8/10 = 0.8`\n\n`tan \u03b8 = 6/8 = 0.75`\n\n### Choosing a ratio\n\n1. Mark the angle in question.\n2. Label opposite, adjacent, and hypotenuse.\n3. Identify which two sides are known or involved.\n4. Choose the ratio containing those sides.\n5. Substitute carefully.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Using SOH-CAH-TOA to choose a ratio."
+        ]
+      },
+      {
+        "order": 6,
+        "lesson_num": "4.6",
+        "title": "Lesson 4.6: Calculator skills and degrees",
+        "slug": "lesson-4-6-calculator-skills-and-degrees",
+        "summary": "For the introductory problems in this course, angles are usually given in degrees. Set the scientific calculator to **DEG** mode unless a question specifically asks for radians.",
+        "content": "For the introductory problems in this course, angles are usually given in degrees. Set the scientific calculator to **DEG** mode unless a question specifically asks for radians.\n\nFor example, in degree mode:\n- `sin(30\u00b0) = 0.5`\n- `cos(60\u00b0) = 0.5`\n- `tan(45\u00b0) = 1`\n\nCalculator button sequences vary by model. Learners should check the display for `DEG` before evaluating an angle in degrees.\n\n### Common mistakes\n- Swapping the opposite and adjacent sides.\n- Using the hypotenuse in the tangent ratio.\n- Forgetting that the side labels depend on the selected angle.\n- Using radians mode when the question uses degrees.\n- Confusing `sin \u03b8` with `sin\u207b\u00b9 \u03b8`; inverse ratios are taught in Week 6.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Calculator skills and degrees."
+        ]
+      }
+    ]
+  },
+  {
+    "week_number": 5,
+    "title": "Week 5: Finding Unknown Sides Using Trigonometric Ratios",
+    "slug": "week-5-finding-unknown-sides",
+    "description": "Using sine, cosine, and tangent to calculate unknown sides.",
+    "learning_objectives": [
+      "Identify the known angle and sides in a right-angled triangle.",
+      "Select the correct trigonometric ratio.",
+      "Rearrange the ratio to make the unknown side the subject.",
+      "Calculate an unknown side using a scientific calculator.",
+      "Round answers as instructed and include units."
+    ],
+    "lessons": [
+      {
+        "order": 1,
+        "lesson_num": "5.1",
+        "title": "Lesson 5.1: Finding an opposite side",
+        "slug": "lesson-5-1-finding-an-opposite-side",
+        "summary": "If the angle and hypotenuse are known, use sine:",
+        "content": "If the angle and hypotenuse are known, use sine:\n\n`sin \u03b8 = opposite / hypotenuse`\n\nRearrange:\n\n`opposite = hypotenuse \u00d7 sin \u03b8`\n\n### Worked example\n\nA right-angled triangle has an angle of `30\u00b0` and a hypotenuse of `12 cm`. Find the side opposite the angle.\n\nStep 1: Identify the ratio. Opposite and hypotenuse are involved, so use sine.\n\n`sin 30\u00b0 = opposite / 12`\n\nStep 2: Multiply both sides by `12`.\n\n`opposite = 12 \u00d7 sin 30\u00b0`\n\nStep 3: Evaluate in degree mode.\n\n`opposite = 12 \u00d7 0.5 = 6 cm`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding an opposite side."
+        ]
+      },
+      {
+        "order": 2,
+        "lesson_num": "5.2",
+        "title": "Lesson 5.2: Finding an adjacent side",
+        "slug": "lesson-5-2-finding-an-adjacent-side",
+        "summary": "If the angle and hypotenuse are known, use cosine:",
+        "content": "If the angle and hypotenuse are known, use cosine:\n\n`cos \u03b8 = adjacent / hypotenuse`\n\nRearrange:\n\n`adjacent = hypotenuse \u00d7 cos \u03b8`\n\n### Worked example\n\nA right-angled triangle has an angle of `60\u00b0` and a hypotenuse of `14 cm`. Find the adjacent side.\n\n`adjacent = 14 \u00d7 cos 60\u00b0`\n\n`adjacent = 14 \u00d7 0.5 = 7 cm`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding an adjacent side."
+        ]
+      },
+      {
+        "order": 3,
+        "lesson_num": "5.3",
+        "title": "Lesson 5.3: Finding an opposite or adjacent side using tangent",
+        "slug": "lesson-5-3-finding-an-opposite-or-adjacent-side-using-tangent",
+        "summary": "Tangent relates the opposite and adjacent sides:",
+        "content": "Tangent relates the opposite and adjacent sides:\n\n`tan \u03b8 = opposite / adjacent`\n\nIf the adjacent side is known:\n\n`opposite = adjacent \u00d7 tan \u03b8`\n\nIf the opposite side is known:\n\n`adjacent = opposite / tan \u03b8`\n\n### Worked example\n\nA right-angled triangle has an angle of `45\u00b0` and an adjacent side of `8 m`. Find the opposite side.\n\n`opposite = 8 \u00d7 tan 45\u00b0`\n\nSince `tan 45\u00b0 = 1`:\n\n`opposite = 8 \u00d7 1 = 8 m`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding an opposite or adjacent side using tangent."
+        ]
+      },
+      {
+        "order": 4,
+        "lesson_num": "5.4",
+        "title": "Lesson 5.4: Choosing the right method",
+        "slug": "lesson-5-4-choosing-the-right-method",
+        "summary": "A right-angled triangle has an angle of `40\u00b0` and a hypotenuse of `15 cm`. Find the side opposite the angle, correct to one decimal place.",
+        "content": "### Worked example\n\nA right-angled triangle has an angle of `40\u00b0` and a hypotenuse of `15 cm`. Find the side opposite the angle, correct to one decimal place.\n\nOpposite and hypotenuse are involved, so use sine:\n\n`sin 40\u00b0 = opposite / 15`\n\n`opposite = 15 \u00d7 sin 40\u00b0`\n\nUsing a calculator in degree mode:\n\n`opposite \u2248 15 \u00d7 0.6428 = 9.6417... cm`\n\nTo one decimal place, the answer is `9.6 cm`.\n\n### Practical procedure\n1. Draw or inspect the right-angled triangle.\n2. Mark the given angle.\n3. Label all known sides relative to that angle.\n4. Identify the required side.\n5. Choose sine, cosine, or tangent.\n6. Rearrange before substituting if needed.\n7. Calculate in the correct angle mode.\n8. Round only at the end, unless the question says otherwise.\n9. Include the unit and check whether the result is reasonable.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Choosing the right method."
+        ]
+      }
+    ]
+  },
+  {
+    "week_number": 6,
+    "title": "Week 6: Finding Unknown Angles Using Inverse Trigonometry",
+    "slug": "week-6-finding-unknown-angles",
+    "description": "Inverse sine, inverse cosine, and inverse tangent.",
+    "learning_objectives": [
+      "Explain when an inverse trigonometric function is needed.",
+      "Distinguish `sin`, `cos`, and `tan` from `sin\u207b\u00b9`, `cos\u207b\u00b9`, and `tan\u207b\u00b9`.",
+      "Calculate an unknown acute angle using two known sides.",
+      "Use a calculator in degree mode.",
+      "Round angle answers as instructed."
+    ],
+    "lessons": [
+      {
+        "order": 1,
+        "lesson_num": "6.1",
+        "title": "Lesson 6.1: What is an inverse trigonometric function?",
+        "slug": "lesson-6-1-what-is-an-inverse-trigonometric-function",
+        "summary": "In earlier lessons, learners used an angle to calculate a side. Sometimes two side lengths are known and the angle is unknown. An inverse trigonometric function can be used to find that angle.",
+        "content": "In earlier lessons, learners used an angle to calculate a side. Sometimes two side lengths are known and the angle is unknown. An inverse trigonometric function can be used to find that angle.\n\nThe notation:\n- `sin\u207b\u00b9(x)` or `arcsin(x)` means inverse sine.\n- `cos\u207b\u00b9(x)` or `arccos(x)` means inverse cosine.\n- `tan\u207b\u00b9(x)` or `arctan(x)` means inverse tangent.\n\n**Important:** In this context, `sin\u207b\u00b9(x)` does not mean `1/sin(x)`. It means the inverse operation used to find an angle from a sine ratio.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of What is an inverse trigonometric function?."
+        ]
+      },
+      {
+        "order": 2,
+        "lesson_num": "6.2",
+        "title": "Lesson 6.2: Finding an angle using inverse sine",
+        "slug": "lesson-6-2-finding-an-angle-using-inverse-sine",
+        "summary": "When the opposite side and hypotenuse are known:",
+        "content": "When the opposite side and hypotenuse are known:\n\n`sin \u03b8 = opposite / hypotenuse`\n\nTherefore:\n\n`\u03b8 = sin\u207b\u00b9(opposite / hypotenuse)`\n\n### Worked example\n\nThe opposite side is `5 cm` and the hypotenuse is `10 cm`. Find angle `\u03b8`.\n\nStep 1:\n\n`sin \u03b8 = 5/10 = 0.5`\n\nStep 2:\n\n`\u03b8 = sin\u207b\u00b9(0.5)`\n\nStep 3: In degree mode:\n\n`\u03b8 = 30\u00b0`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding an angle using inverse sine."
+        ]
+      },
+      {
+        "order": 3,
+        "lesson_num": "6.3",
+        "title": "Lesson 6.3: Finding an angle using inverse cosine",
+        "slug": "lesson-6-3-finding-an-angle-using-inverse-cosine",
+        "summary": "When the adjacent side and hypotenuse are known:",
+        "content": "When the adjacent side and hypotenuse are known:\n\n`cos \u03b8 = adjacent / hypotenuse`\n\nTherefore:\n\n`\u03b8 = cos\u207b\u00b9(adjacent / hypotenuse)`\n\n### Worked example\n\nThe adjacent side is `8 cm` and the hypotenuse is `10 cm`.\n\n`cos \u03b8 = 8/10 = 0.8`\n\n`\u03b8 = cos\u207b\u00b9(0.8)`\n\n`\u03b8 \u2248 36.9\u00b0`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding an angle using inverse cosine."
+        ]
+      },
+      {
+        "order": 4,
+        "lesson_num": "6.4",
+        "title": "Lesson 6.4: Finding an angle using inverse tangent",
+        "slug": "lesson-6-4-finding-an-angle-using-inverse-tangent",
+        "summary": "When the opposite and adjacent sides are known:",
+        "content": "When the opposite and adjacent sides are known:\n\n`tan \u03b8 = opposite / adjacent`\n\nTherefore:\n\n`\u03b8 = tan\u207b\u00b9(opposite / adjacent)`\n\n### Worked example\n\nThe opposite side is `3 cm` and the adjacent side is `4 cm`.\n\n`tan \u03b8 = 3/4 = 0.75`\n\n`\u03b8 = tan\u207b\u00b9(0.75)`\n\n`\u03b8 \u2248 36.9\u00b0`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding an angle using inverse tangent."
+        ]
+      },
+      {
+        "order": 5,
+        "lesson_num": "6.5",
+        "title": "Lesson 6.5: Calculator use and checking",
+        "slug": "lesson-6-5-calculator-use-and-checking",
+        "summary": "For inverse trigonometry in this course:\n1. Ensure the calculator is in degree mode.\n2. Find the ratio of the relevant sides.\n3. Use the inverse function, often accessed through a `SHIFT`, `2nd`, or `INV` key.\n4. Check that the result is a plausible acute angle when working wi...",
+        "content": "For inverse trigonometry in this course:\n1. Ensure the calculator is in degree mode.\n2. Find the ratio of the relevant sides.\n3. Use the inverse function, often accessed through a `SHIFT`, `2nd`, or `INV` key.\n4. Check that the result is a plausible acute angle when working with an acute reference angle in a right triangle.\n5. Round the final answer as instructed.\n\n### Common mistakes\n- Using ordinary sine instead of inverse sine to find an angle.\n- Dividing the sides in the wrong order.\n- Using the wrong side pair for the selected inverse function.\n- Confusing inverse notation with a reciprocal.\n- Forgetting degree mode.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Calculator use and checking."
+        ]
+      }
+    ]
+  },
+  {
+    "week_number": 7,
+    "title": "Week 7: Elevation, Depression, Heights, And Distances",
+    "slug": "week-7-elevation-depression-heights-distances",
+    "description": "Applying trigonometry to real-life problems.",
+    "learning_objectives": [
+      "Define angle of elevation and angle of depression.",
+      "Draw and label a diagram from a word problem.",
+      "Identify horizontal distance, vertical height, and line of sight.",
+      "Select an appropriate trigonometric ratio.",
+      "Solve basic height-and-distance problems and state reasonable assumptions."
+    ],
+    "lessons": [
+      {
+        "order": 1,
+        "lesson_num": "7.1",
+        "title": "Lesson 7.1: Angle of elevation",
+        "slug": "lesson-7-1-angle-of-elevation",
+        "summary": "The **angle of elevation** is the angle between a horizontal line at the observer's position and the line of sight to an object above the observer.",
+        "content": "The **angle of elevation** is the angle between a horizontal line at the observer's position and the line of sight to an object above the observer.\n\nFor example, when a learner looks up from the ground to the top of a building, the angle between the horizontal and the upward line of sight is the angle of elevation.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Angle of elevation."
+        ]
+      },
+      {
+        "order": 2,
+        "lesson_num": "7.2",
+        "title": "Lesson 7.2: Angle of depression",
+        "slug": "lesson-7-2-angle-of-depression",
+        "summary": "The **angle of depression** is the angle between a horizontal line through the observer and the line of sight to an object below the observer.",
+        "content": "The **angle of depression** is the angle between a horizontal line through the observer and the line of sight to an object below the observer.\n\nFor example, a person standing on a balcony looks down at a car. The angle between the horizontal and the downward line of sight is the angle of depression.\n\nIf the two horizontal lines are parallel, the angle of depression equals the corresponding angle of elevation at the other end of the line of sight. This follows from the geometry of parallel lines.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Angle of depression."
+        ]
+      },
+      {
+        "order": 3,
+        "lesson_num": "7.3",
+        "title": "Lesson 7.3: A method for solving height-and-distance problems",
+        "slug": "lesson-7-3-a-method-for-solving-height-and-distance-problems",
+        "summary": "1. Read the question carefully.\n2. Draw a right-angled triangle representing the situation.\n3. Mark the known angle and lengths.\n4. Identify the unknown quantity.\n5. Label opposite, adjacent, and hypotenuse relative to the given angle.\n6. Choose sine, cosine, or tangent.\n7. Su...",
+        "content": "1. Read the question carefully.\n2. Draw a right-angled triangle representing the situation.\n3. Mark the known angle and lengths.\n4. Identify the unknown quantity.\n5. Label opposite, adjacent, and hypotenuse relative to the given angle.\n6. Choose sine, cosine, or tangent.\n7. Substitute and calculate.\n8. State the answer with units and sensible rounding.\n9. State any assumption, such as level ground or a vertical object, if relevant.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of A method for solving height-and-distance problems."
+        ]
+      },
+      {
+        "order": 4,
+        "lesson_num": "7.4",
+        "title": "Lesson 7.4: Finding the height of a building",
+        "slug": "lesson-7-4-finding-the-height-of-a-building",
+        "summary": "A learner stands `20 m` from the base of a vertical building. The angle of elevation from the learner's eye level to the top of the building is `35\u00b0`. Estimate the height of the building above the learner's eye level. Assume the ground is level.",
+        "content": "### Worked example\n\nA learner stands `20 m` from the base of a vertical building. The angle of elevation from the learner's eye level to the top of the building is `35\u00b0`. Estimate the height of the building above the learner's eye level. Assume the ground is level.\n\nThe horizontal distance is adjacent and the height above eye level is opposite.\n\nUse tangent:\n\n`tan 35\u00b0 = height / 20`\n\nRearrange:\n\n`height = 20 \u00d7 tan 35\u00b0`\n\n`height \u2248 20 \u00d7 0.7002 = 14.0 m`\n\nThe height above the learner's eye level is approximately `14.0 m`.\n\nIf the question asks for the building's total height above the ground, the learner's eye height must also be included.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding the height of a building."
+        ]
+      },
+      {
+        "order": 5,
+        "lesson_num": "7.5",
+        "title": "Lesson 7.5: Finding horizontal distance",
+        "slug": "lesson-7-5-finding-horizontal-distance",
+        "summary": "A person observes the top of a vertical pole at an angle of elevation of `40\u00b0`. The pole is `8 m` high above the person's eye level. Find the horizontal distance to the pole, assuming level ground.",
+        "content": "### Worked example\n\nA person observes the top of a vertical pole at an angle of elevation of `40\u00b0`. The pole is `8 m` high above the person's eye level. Find the horizontal distance to the pole, assuming level ground.\n\nThe height is opposite and the horizontal distance is adjacent.\n\n`tan 40\u00b0 = 8 / distance`\n\nRearrange:\n\n`distance = 8 / tan 40\u00b0`\n\n`distance \u2248 9.5 m`",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Finding horizontal distance."
+        ]
+      },
+      {
+        "order": 6,
+        "lesson_num": "7.6",
+        "title": "Lesson 7.6: Line of sight as the hypotenuse",
+        "slug": "lesson-7-6-line-of-sight-as-the-hypotenuse",
+        "summary": "A kite is held by a straight string of length `25 m`. The string makes an angle of `30\u00b0` with the horizontal. Ignoring sag and the height of the person's hand, estimate the kite's vertical height above the hand.",
+        "content": "### Worked example\n\nA kite is held by a straight string of length `25 m`. The string makes an angle of `30\u00b0` with the horizontal. Ignoring sag and the height of the person's hand, estimate the kite's vertical height above the hand.\n\nThe string is the hypotenuse and the vertical height is opposite the angle.\n\n`sin 30\u00b0 = height / 25`\n\n`height = 25 \u00d7 sin 30\u00b0 = 12.5 m`\n\nThe vertical height above the hand is `12.5 m`.\n\n### Assumptions and accuracy\n\nReal-life questions often simplify the situation. Learners should note whether:\n- The ground is level.\n- The object is vertical.\n- The observer's eye height is ignored or provided.\n- The line of sight or string is assumed straight.\n- Measurements are approximate.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Line of sight as the hypotenuse."
+        ]
+      }
+    ]
+  },
+  {
+    "week_number": 8,
+    "title": "Week 8: Integration, Consolidation, Revision, And Mastery",
+    "slug": "week-8-integration-consolidation-mastery",
+    "description": "Mixed problems, applications, revision, remedial/enrichment activities, and mastery assessment.",
+    "learning_objectives": [
+      "Select the appropriate method for a mixed trigonometry problem.",
+      "Decide when to use angle properties, Pythagoras' theorem, or a trigonometric ratio.",
+      "Solve multi-step problems.",
+      "Explain their reasoning and check whether answers are reasonable.",
+      "Identify areas needing further practice and demonstrate mastery in an assessment."
+    ],
+    "lessons": [
+      {
+        "order": 1,
+        "lesson_num": "8.1",
+        "title": "Lesson 8.1: Choosing a method",
+        "slug": "lesson-8-1-choosing-a-method",
+        "summary": "Before calculating, ask:",
+        "content": "Before calculating, ask:\n\n- Is the problem only about missing angles in a triangle? Use angle properties.\n- Is it a right-angled triangle with two sides known and the third side required, without an angle needed? Consider Pythagoras' theorem.\n- Is an acute angle and a side involved? Consider sine, cosine, or tangent.\n- Are two sides known and an angle required? Consider inverse trigonometry.\n- Is it a real-life height or distance problem? Draw a diagram first and then choose the relevant method.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Choosing a method."
+        ]
+      },
+      {
+        "order": 2,
+        "lesson_num": "8.2",
+        "title": "Lesson 8.2: Mixed worked examples",
+        "slug": "lesson-8-2-mixed-worked-examples",
+        "summary": "Two angles of a triangle are `38\u00b0` and `72\u00b0`. Find the third angle.",
+        "content": "### Example 1: Missing angle in a triangle\n\nTwo angles of a triangle are `38\u00b0` and `72\u00b0`. Find the third angle.\n\n`third angle = 180\u00b0 \u2212 38\u00b0 \u2212 72\u00b0 = 70\u00b0`\n\n### Example 2: Pythagoras' theorem\n\nA right-angled triangle has shorter sides `7 cm` and `24 cm`. Find the hypotenuse.\n\n`c\u00b2 = 7\u00b2 + 24\u00b2 = 49 + 576 = 625`\n\n`c = \u221a625 = 25 cm`\n\n### Example 3: Finding a side with sine\n\nA right-angled triangle has a `25\u00b0` angle and a hypotenuse of `18 cm`. Find the opposite side.\n\n`opposite = 18 \u00d7 sin 25\u00b0 \u2248 7.6 cm`\n\n### Example 4: Finding an angle with tangent\n\nThe opposite side is `9 cm` and the adjacent side is `12 cm`. Find the acute angle.\n\n`\u03b8 = tan\u207b\u00b9(9/12)`\n\n`\u03b8 \u2248 36.9\u00b0`\n\n### Example 5: A multi-step problem\n\nA ladder of length `10 m` rests against a vertical wall, making an angle of `65\u00b0` with the horizontal ground. Find:\n(a) the height reached on the wall;\n(b) the horizontal distance of the foot of the ladder from the wall.\n\nFor (a), the height is opposite the `65\u00b0` angle and the ladder is the hypotenuse:\n\n`height = 10 \u00d7 sin 65\u00b0 \u2248 9.1 m`\n\nFor (b), the horizontal distance is adjacent and the ladder is the hypotenuse:\n\n`distance = 10 \u00d7 cos 65\u00b0 \u2248 4.2 m`\n\nAnswers are approximate and should be rounded as instructed.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Mixed worked examples."
+        ]
+      },
+      {
+        "order": 3,
+        "lesson_num": "8.3",
+        "title": "Lesson 8.3: Revision checklist",
+        "slug": "lesson-8-3-revision-checklist",
+        "summary": "Learners should be able to:\n- Classify angles and triangles.\n- Use the `180\u00b0` triangle angle sum.\n- Identify the hypotenuse, opposite, and adjacent sides.\n- Apply Pythagoras' theorem only to right-angled triangles.\n- Recall SOH-CAH-TOA.\n- Calculate unknown sides using trigonom...",
+        "content": "Learners should be able to:\n- Classify angles and triangles.\n- Use the `180\u00b0` triangle angle sum.\n- Identify the hypotenuse, opposite, and adjacent sides.\n- Apply Pythagoras' theorem only to right-angled triangles.\n- Recall SOH-CAH-TOA.\n- Calculate unknown sides using trigonometric ratios.\n- Calculate unknown angles using inverse trigonometric functions.\n- Solve basic elevation, depression, height, and distance problems.\n- Use degree mode and round answers appropriately.\n- Explain each step, not merely write a final answer.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Revision checklist."
+        ]
+      },
+      {
+        "order": 4,
+        "lesson_num": "8.4",
+        "title": "Lesson 8.4: Remedial learning pathways",
+        "slug": "lesson-8-4-remedial-learning-pathways",
+        "summary": "Use assessment results and the learner's actual error patterns to select revision. Do not assign the same generic remediation to every learner.",
+        "content": "Use assessment results and the learner's actual error patterns to select revision. Do not assign the same generic remediation to every learner.\n\n- **Weak on angles and triangles:** revisit Week 1, practise classifying angles and missing-angle questions, then check understanding again.\n- **Weak on side labelling:** revisit Week 2 with labelled diagrams and several reference angles.\n- **Weak on Pythagoras:** revisit Week 3, practise identifying the hypotenuse, then solve missing-hypotenuse and missing-shorter-side problems separately.\n- **Weak on ratio selection:** revisit Week 4 and practise identifying the two relevant sides before calculating.\n- **Weak on unknown sides:** revisit Week 5, separating sine, cosine, and tangent exercises.\n- **Weak on unknown angles:** revisit Week 6, emphasizing inverse functions and calculator degree mode.\n- **Weak on word problems:** revisit Week 7 and practise drawing diagrams before using formulas.\n\nA learner should retry a mastery assessment according to the platform's configured attempt rules. Passing or unlocking must be determined by the backend.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Remedial learning pathways."
+        ]
+      },
+      {
+        "order": 5,
+        "lesson_num": "8.5",
+        "title": "Lesson 8.5: Enrichment activities",
+        "slug": "lesson-8-5-enrichment-activities",
+        "summary": "For learners who demonstrate mastery:\n1. Solve height-and-distance problems requiring two steps.\n2. Compare two methods where both are valid and explain which is more efficient.\n3. Create a realistic word problem involving a ladder, ramp, building, tree, or kite.\n4. Estimate a...",
+        "content": "For learners who demonstrate mastery:\n1. Solve height-and-distance problems requiring two steps.\n2. Compare two methods where both are valid and explain which is more efficient.\n3. Create a realistic word problem involving a ladder, ramp, building, tree, or kite.\n4. Estimate an answer before using the calculator and compare the estimate with the result.\n5. Explain a worked solution to another learner, using correct mathematical vocabulary.\n6. Investigate how changing an angle while keeping the hypotenuse fixed changes the opposite and adjacent sides.",
+        "estimated_minutes": 15,
+        "learning_objectives": [
+          "Master key principles and applications of Enrichment activities."
+        ]
+      }
+    ]
+  }
+]

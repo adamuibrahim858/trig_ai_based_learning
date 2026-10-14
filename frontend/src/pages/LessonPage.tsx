@@ -9,6 +9,7 @@ import {
   ArrowLeft, CheckCircle2, Clock, Brain, Loader2,
   BookOpen, ExternalLink, ChevronRight,
 } from 'lucide-react';
+import { MarkdownContent } from '../components/MarkdownContent';
 
 export default function LessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
@@ -196,12 +197,8 @@ export default function LessonPage() {
         )}
 
         {lesson.content ? (
-          <div className="lesson-content" style={{ fontSize: 15 }}>
-            {lesson.content.split('\n').map((line, i) => (
-              <p key={i} style={{ marginBottom: line.trim() === '' ? 8 : 0 }}>
-                {line}
-              </p>
-            ))}
+          <div className="lesson-content">
+            <MarkdownContent content={lesson.content} />
           </div>
         ) : (
           <div className="empty-state" style={{ padding: 40 }}>
