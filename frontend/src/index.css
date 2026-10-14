@@ -1332,3 +1332,28 @@ p { color: var(--text-secondary); }
 .font-bold { font-weight: 700; }
 .font-semibold { font-weight: 600; }
 .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ─── Markdown & LaTeX Content ────────────────────────────── */
+.markdown-content > :first-child {
+  margin-top: 0 !important;
+}
+.markdown-content > :last-child {
+  margin-bottom: 0 !important;
+}
+.markdown-content .katex-display {
+  margin: 10px 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+}
+.markdown-content .katex {
+  font-size: 1.05em;
+}
+.markdown-content strong {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.markdown-content em {
+  font-style: italic;
+}
+

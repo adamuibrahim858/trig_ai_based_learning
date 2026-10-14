@@ -1,15 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { curriculumService } from '../services/curriculumService';
-import { aiTutorService } from '../services/aiTutorService';
 import { useToast } from '../contexts/ToastContext';
 import { getErrorMessage } from '../services/api';
-import type { Lesson } from '../types/api';
+import type { Lesson, Topic } from '../types/api';
 import {
   ArrowLeft, CheckCircle2, Clock, Brain, Loader2,
-  BookOpen, ExternalLink, ChevronRight,
+  BookOpen, ExternalLink, ChevronRight, ArrowRight,
 } from 'lucide-react';
 import { MarkdownContent } from '../components/MarkdownContent';
+import AskAiModal from '../components/AskAiModal';
 
 export default function LessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
@@ -18,9 +18,12 @@ export default function LessonPage() {
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [loading, setLoading] = useState(true);
   const [completing, setCompleting] = useState(false);
-  const [summarizing, setSummarizing] = useState(false);
-  const [aiSummary, setAiSummary] = useState('');
   const [started, setStarted] = useState(false);
+  const [askAiOpen, setAskAiOpen] = useState(false);
+
+  // Topic data for "next lesson / next topic" navigation
+  const [topicLessons, setTopicLessons] = useState<Lesson[]>([]);
+  const [allTopics, setAllTopics] = useState<Topic[]>([]);
 
   const loadLesson = useCallback(async (id: number) => {
     try {
@@ -33,6 +36,18 @@ export default function LessonPage() {
         setStarted(true);
       } else if (l.status === 'in_progress' || l.status === 'completed') {
         setStarted(true);
+      }
+
+      // Load topic lessons for "Next Lesson" navigation
+      try {
+        const topics = await curriculumService.getCourseTopics(1);
+        setAllTopics(topics);
+        const currentTopic = topics.find(t => t.id === l.topic_id);
+        if (currentTopic?.lessons) {
+          setTopicLessons(currentTopic.lessons.sort((a, b) => a.order - b.order));
+        }
+      } catch {
+        // non-critical
       }
     } catch (err) {
       toast.error(getErrorMessage(err));
@@ -62,18 +77,49 @@ export default function LessonPage() {
     }
   };
 
-  const handleAISummary = async () => {
-    if (!lesson) return;
-    setSummarizing(true);
-    setAiSummary('');
-    try {
-      const res = await aiTutorService.summarizeLesson(lesson.id);
-      setAiSummary(res.summary);
-    } catch (err) {
-      toast.error(getErrorMessage(err));
-    } finally {
-      setSummarizing(false);
+  // Compute next lesson / next topic
+  const getNextNavigation = () => {
+    if (!lesson) return null;
+
+    // Find the next lesson in the same topic
+    const currentIndex = topicLessons.findIndex(l => l.id === lesson.id);
+    if (currentIndex >= 0 && currentIndex < topicLessons.length - 1) {
+      const nextLesson = topicLessons[currentIndex + 1];
+      return {
+        type: 'lesson' as const,
+        label: `Next: ${nextLesson.title}`,
+        action: () => navigate(`/lesson/${nextLesson.id}`),
+        accessible: nextLesson.is_accessible,
+      };
     }
+
+    // Last lesson in topic — offer to go to the next topic
+    if (allTopics.length > 0 && lesson.topic) {
+      const currentTopicIdx = allTopics.findIndex(t => t.id === lesson.topic_id);
+      if (currentTopicIdx >= 0 && currentTopicIdx < allTopics.length - 1) {
+        const nextTopic = allTopics[currentTopicIdx + 1];
+        // If the current topic has an assessment, prompt to take it first
+        const currentTopic = allTopics[currentTopicIdx];
+        if (currentTopic.assessment_id) {
+          return {
+            type: 'assessment' as const,
+            label: `Take Week ${currentTopic.week_number} Assessment`,
+            action: () => navigate('/assessments'),
+            accessible: true,
+          };
+        }
+        if (nextTopic.is_accessible && nextTopic.lessons && nextTopic.lessons.length > 0) {
+          return {
+            type: 'topic' as const,
+            label: `Next Topic: Week ${nextTopic.week_number} — ${nextTopic.title}`,
+            action: () => navigate(`/lesson/${nextTopic.lessons![0].id}`),
+            accessible: true,
+          };
+        }
+      }
+    }
+
+    return null;
   };
 
   if (loading) {
@@ -81,6 +127,8 @@ export default function LessonPage() {
   }
 
   if (!lesson) return null;
+
+  const nextNav = getNextNavigation();
 
   return (
     <div style={{ maxWidth: 800, margin: '0 auto' }}>
@@ -128,11 +176,16 @@ export default function LessonPage() {
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             <button
               className="btn btn-secondary btn-sm"
-              onClick={handleAISummary}
-              disabled={summarizing}
+              onClick={() => setAskAiOpen(true)}
+              style={{
+                background: 'linear-gradient(135deg, rgba(79,70,229,0.1), rgba(124,58,237,0.08))',
+                border: '1px solid rgba(79,70,229,0.2)',
+                color: 'var(--primary)',
+                fontWeight: 600,
+              }}
             >
-              {summarizing ? <Loader2 size={14} className="spin-icon" /> : <Brain size={14} />}
-              AI Summary
+              <Brain size={14} />
+              Ask AI
             </button>
             {lesson.status !== 'completed' && started && (
               <button
@@ -148,22 +201,6 @@ export default function LessonPage() {
           </div>
         </div>
       </div>
-
-      {/* AI Summary Panel */}
-      {aiSummary && (
-        <div style={{
-          marginBottom: 20,
-          padding: 20,
-          background: 'rgba(99,102,241,0.06)',
-          border: '1px solid rgba(99,102,241,0.25)',
-          borderRadius: 'var(--radius-lg)',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12, fontWeight: 700, color: 'var(--primary)' }}>
-            <Brain size={16} /> AI Summary
-          </div>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--text-secondary)' }}>{aiSummary}</p>
-        </div>
-      )}
 
       {/* Lesson Body */}
       <div className="card" style={{ marginBottom: 20 }}>
@@ -256,6 +293,7 @@ export default function LessonPage() {
         </div>
       )}
 
+      {/* Completed — show next navigation */}
       {lesson.status === 'completed' && (
         <div style={{
           textAlign: 'center',
@@ -265,14 +303,35 @@ export default function LessonPage() {
           borderRadius: 'var(--radius-lg)',
         }}>
           <CheckCircle2 size={32} style={{ color: 'var(--success)', margin: '0 auto 8px' }} />
-          <div style={{ fontWeight: 700, color: 'var(--success)', marginBottom: 12 }}>
+          <div style={{ fontWeight: 700, color: 'var(--success)', marginBottom: 16 }}>
             Lesson Completed!
           </div>
-          <button className="btn btn-secondary" onClick={() => navigate('/curriculum')}>
-            Back to Curriculum
-          </button>
+          <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button className="btn btn-secondary" onClick={() => navigate('/curriculum')}>
+              Back to Curriculum
+            </button>
+            {nextNav && nextNav.accessible && (
+              <button
+                className="btn btn-primary"
+                onClick={nextNav.action}
+                style={{ display: 'flex', alignItems: 'center', gap: 6 }}
+              >
+                {nextNav.type === 'assessment' ? '📝' : <ArrowRight size={15} />}
+                {nextNav.label}
+              </button>
+            )}
+          </div>
         </div>
       )}
+
+      {/* Ask AI Modal */}
+      <AskAiModal
+        isOpen={askAiOpen}
+        onClose={() => setAskAiOpen(false)}
+        lessonId={lesson.id}
+        lessonTitle={lesson.title}
+        topicTitle={lesson.topic?.title}
+      />
     </div>
   );
 }

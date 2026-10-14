@@ -4,6 +4,7 @@ import { curriculumService } from '../services/curriculumService';
 import { useToast } from '../contexts/ToastContext';
 import { getErrorMessage } from '../services/api';
 import type { AiConversation, AiMessage, Topic } from '../types/api';
+import { MarkdownContent } from '../components/MarkdownContent';
 import {
   Plus, Trash2, Send, Loader2, MessageCircle,
   Sparkles, HelpCircle, X,
@@ -347,9 +348,13 @@ export default function AITutorPage() {
                       {msg.role === 'user' ? 'You' : '🧠 AI Tutor'}
                     </div>
                     <div className={`chat-bubble chat-bubble-${msg.role}`}>
-                      {msg.message.split('\n').map((line, i) => (
-                        <span key={i}>{line}{i < msg.message.split('\n').length - 1 ? <br /> : null}</span>
-                      ))}
+                      {msg.role === 'assistant' ? (
+                        <MarkdownContent content={msg.message} />
+                      ) : (
+                        msg.message.split('\n').map((line, i) => (
+                          <span key={i}>{line}{i < msg.message.split('\n').length - 1 ? <br /> : null}</span>
+                        ))
+                      )}
                     </div>
                   </div>
                 ))}

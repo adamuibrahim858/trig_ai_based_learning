@@ -1,145 +1,248 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import remarkGfm from 'remark-gfm';
 
 interface MarkdownContentProps {
   content: string;
+  className?: string;
 }
 
-export const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
+/**
+ * Preprocess math delimiters:
+ * Converts LaTeX delimiters \[ ... \] to $$ ... $$
+ * and \( ... \) to $ ... $ so remark-math recognizes them.
+ */
+function preprocessMathDelimiters(text: string): string {
+  if (!text) return '';
+  return text
+    // Replace \[ ... \] with $$ ... $$
+    .replace(/\\\[([\s\S]*?)\\\]/g, (_, math) => `$$\n${math.trim()}\n$$`)
+    // Replace \( ... \) with $ ... $
+    .replace(/\\\(([\s\S]*?)\\\)/g, (_, math) => `$${math.trim()}$`);
+}
+
+export const MarkdownContent: React.FC<MarkdownContentProps> = ({ content, className = '' }) => {
   if (!content) return null;
 
-  // Split into paragraphs / blocks
-  const blocks = content.split(/\n\n+/);
-
-  const renderInline = (text: string): React.ReactNode => {
-    // Process inline code `...`
-    const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g);
-    return parts.map((part, idx) => {
-      if (part.startsWith('`') && part.endsWith('`')) {
-        return (
-          <code
-            key={idx}
-            style={{
-              background: 'rgba(79, 70, 229, 0.08)',
-              color: 'var(--primary)',
-              padding: '2px 6px',
-              borderRadius: '4px',
-              fontSize: '0.92em',
-              fontFamily: 'monospace',
-              fontWeight: 600,
-            }}
-          >
-            {part.slice(1, -1)}
-          </code>
-        );
-      }
-      if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={idx} style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{part.slice(2, -2)}</strong>;
-      }
-      return part;
-    });
-  };
+  const processed = preprocessMathDelimiters(content);
 
   return (
-    <div className="markdown-body" style={{ display: 'flex', flexDirection: 'column', gap: '14px', lineHeight: 1.7, color: 'var(--text-secondary)' }}>
-      {blocks.map((block, idx) => {
-        const trimmed = block.trim();
-
-        // Level 3 Heading: ### Title
-        if (trimmed.startsWith('### ')) {
-          return (
-            <h3
-              key={idx}
+    <div
+      className={`markdown-content ${className}`.trim()}
+      style={{
+        lineHeight: 1.65,
+        color: 'inherit',
+        wordBreak: 'break-word',
+      }}
+    >
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm, remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+        components={{
+          h1: ({ node, ...props }) => (
+            <h1
               style={{
-                fontSize: '1.15rem',
+                fontSize: '1.4rem',
                 fontWeight: 700,
                 color: 'var(--text-primary)',
-                marginTop: '12px',
-                marginBottom: '2px',
+                margin: '14px 0 8px 0',
                 paddingBottom: '6px',
                 borderBottom: '1px solid var(--border)',
               }}
-            >
-              {renderInline(trimmed.slice(4))}
-            </h3>
-          );
-        }
-
-        // Level 2 Heading: ## Title
-        if (trimmed.startsWith('## ')) {
-          return (
+              {...props}
+            />
+          ),
+          h2: ({ node, ...props }) => (
             <h2
-              key={idx}
               style={{
-                fontSize: '1.3rem',
+                fontSize: '1.2rem',
                 fontWeight: 700,
                 color: 'var(--text-primary)',
-                marginTop: '16px',
-                marginBottom: '4px',
+                margin: '12px 0 6px 0',
               }}
-            >
-              {renderInline(trimmed.slice(3))}
-            </h2>
-          );
-        }
-
-        // Unordered List (- item or * item)
-        if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-          const items = trimmed.split('\n').filter(l => l.trim().length > 0);
-          return (
-            <ul key={idx} style={{ paddingLeft: '22px', display: 'flex', flexDirection: 'column', gap: '6px', margin: 0 }}>
-              {items.map((item, itemIdx) => (
-                <li key={itemIdx} style={{ listStyleType: 'disc' }}>
-                  {renderInline(item.replace(/^[-*]\s+/, ''))}
-                </li>
-              ))}
-            </ul>
-          );
-        }
-
-        // Numbered List (1. item)
-        if (/^\d+\.\s+/.test(trimmed)) {
-          const items = trimmed.split('\n').filter(l => l.trim().length > 0);
-          return (
-            <ol key={idx} style={{ paddingLeft: '22px', display: 'flex', flexDirection: 'column', gap: '6px', margin: 0 }}>
-              {items.map((item, itemIdx) => (
-                <li key={itemIdx} style={{ listStyleType: 'decimal' }}>
-                  {renderInline(item.replace(/^\d+\.\s+/, ''))}
-                </li>
-              ))}
-            </ol>
-          );
-        }
-
-        // Blockquote (> text)
-        if (trimmed.startsWith('>')) {
-          return (
-            <div
-              key={idx}
+              {...props}
+            />
+          ),
+          h3: ({ node, ...props }) => (
+            <h3
               style={{
-                padding: '12px 16px',
-                borderLeft: '4px solid var(--primary)',
-                background: 'rgba(79, 70, 229, 0.04)',
-                borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: 'var(--text-primary)',
+                margin: '10px 0 4px 0',
+              }}
+              {...props}
+            />
+          ),
+          h4: ({ node, ...props }) => (
+            <h4
+              style={{
+                fontSize: '0.98rem',
+                fontWeight: 600,
+                color: 'var(--text-primary)',
+                margin: '8px 0 4px 0',
+              }}
+              {...props}
+            />
+          ),
+          p: ({ node, ...props }) => (
+            <p
+              style={{
+                margin: '0 0 10px 0',
+                lineHeight: 1.65,
+              }}
+              {...props}
+            />
+          ),
+          hr: ({ node, ...props }) => (
+            <hr
+              style={{
+                border: 'none',
+                borderTop: '1px solid var(--border)',
+                margin: '14px 0',
+              }}
+              {...props}
+            />
+          ),
+          ul: ({ node, ...props }) => (
+            <ul
+              style={{
+                paddingLeft: '22px',
+                margin: '6px 0 10px 0',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '4px',
+              }}
+              {...props}
+            />
+          ),
+          ol: ({ node, ...props }) => (
+            <ol
+              style={{
+                paddingLeft: '22px',
+                margin: '6px 0 10px 0',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '4px',
+              }}
+              {...props}
+            />
+          ),
+          li: ({ node, ...props }) => (
+            <li
+              style={{
+                lineHeight: 1.6,
+              }}
+              {...props}
+            />
+          ),
+          blockquote: ({ node, ...props }) => (
+            <blockquote
+              style={{
+                borderLeft: '3px solid var(--primary)',
+                margin: '8px 0 12px 0',
+                padding: '8px 14px',
+                background: 'rgba(99, 102, 241, 0.05)',
+                borderRadius: '0 8px 8px 0',
                 fontStyle: 'italic',
               }}
-            >
-              {renderInline(trimmed.replace(/^>\s*/, ''))}
+              {...props}
+            />
+          ),
+          code: ({ node, className: codeClassName, children, ...props }) => {
+            const isInline = !codeClassName && !String(children).includes('\n');
+            if (isInline) {
+              return (
+                <code
+                  style={{
+                    background: 'rgba(99, 102, 241, 0.08)',
+                    color: 'var(--primary)',
+                    padding: '2px 6px',
+                    borderRadius: '4px',
+                    fontSize: '0.9em',
+                    fontFamily: 'monospace',
+                    fontWeight: 600,
+                  }}
+                  {...props}
+                >
+                  {children}
+                </code>
+              );
+            }
+            return (
+              <code
+                style={{
+                  fontFamily: 'monospace',
+                  fontSize: '0.9em',
+                }}
+                className={codeClassName}
+                {...props}
+              >
+                {children}
+              </code>
+            );
+          },
+          pre: ({ node, ...props }) => (
+            <pre
+              style={{
+                background: 'var(--bg-card, #1e1e2e)',
+                border: '1px solid var(--border)',
+                borderRadius: '8px',
+                padding: '12px 14px',
+                overflowX: 'auto',
+                margin: '10px 0',
+              }}
+              {...props}
+            />
+          ),
+          table: ({ node, ...props }) => (
+            <div style={{ overflowX: 'auto', margin: '12px 0' }}>
+              <table
+                style={{
+                  width: '100%',
+                  borderCollapse: 'collapse',
+                  fontSize: '0.92rem',
+                }}
+                {...props}
+              />
             </div>
-          );
-        }
-
-        // Regular paragraph with potential multiline text
-        return (
-          <p key={idx} style={{ margin: 0, fontSize: '0.96rem' }}>
-            {trimmed.split('\n').map((line, lIdx, arr) => (
-              <React.Fragment key={lIdx}>
-                {renderInline(line)}
-                {lIdx < arr.length - 1 && <br />}
-              </React.Fragment>
-            ))}
-          </p>
-        );
-      })}
+          ),
+          th: ({ node, ...props }) => (
+            <th
+              style={{
+                border: '1px solid var(--border)',
+                padding: '8px 12px',
+                background: 'rgba(99, 102, 241, 0.08)',
+                fontWeight: 600,
+                textAlign: 'left',
+              }}
+              {...props}
+            />
+          ),
+          td: ({ node, ...props }) => (
+            <td
+              style={{
+                border: '1px solid var(--border)',
+                padding: '8px 12px',
+              }}
+              {...props}
+            />
+          ),
+          strong: ({ node, ...props }) => (
+            <strong
+              style={{
+                fontWeight: 700,
+                color: 'var(--text-primary)',
+              }}
+              {...props}
+            />
+          ),
+        }}
+      >
+        {processed}
+      </ReactMarkdown>
     </div>
   );
 };

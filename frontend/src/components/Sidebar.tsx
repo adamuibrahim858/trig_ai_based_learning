@@ -77,17 +77,29 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
       {/* Navigation */}
       <nav className="sidebar-nav">
         <div className="sidebar-section-label">Navigation</div>
-        {navItems.map(item => (
-          <button
-            key={item.path}
-            type="button"
-            className={`sidebar-link ${location.pathname === item.path ? 'active' : ''}`}
-            onClick={() => handleNav(item.path)}
-          >
-            <span className="sidebar-link-icon">{item.icon}</span>
-            <span>{item.label}</span>
-          </button>
-        ))}
+        {navItems.map(item => {
+          // Smart active matching: child routes highlight parent nav
+          const isActive =
+            location.pathname === item.path ||
+            (item.path === '/curriculum' && location.pathname.startsWith('/lesson/')) ||
+            (item.path === '/assessments' && (
+              location.pathname.startsWith('/attempt/') ||
+              location.pathname.startsWith('/result/')
+            )) ||
+            (item.path === '/ai-tutor' && location.pathname.startsWith('/ai-tutor'));
+
+          return (
+            <button
+              key={item.path}
+              type="button"
+              className={`sidebar-link ${isActive ? 'active' : ''}`}
+              onClick={() => handleNav(item.path)}
+            >
+              <span className="sidebar-link-icon">{item.icon}</span>
+              <span>{item.label}</span>
+            </button>
+          );
+        })}
       </nav>
 
       {/* Footer / User */}
