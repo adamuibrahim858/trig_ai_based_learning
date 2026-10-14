@@ -21,10 +21,21 @@ export default function CurriculumPage() {
   const load = useCallback(async () => {
     try {
       setLoading(true);
-      const t = await curriculumService.getCourseTopics(1);
+      let t = await curriculumService.getCourseTopics(1);
+      
+      // If Week 1 is locked because the user has not yet enrolled, enroll automatically
+      if (t.length > 0 && !t[0].is_accessible) {
+        try {
+          await curriculumService.enrollInCourse(1);
+          t = await curriculumService.getCourseTopics(1);
+        } catch {
+          // ignore error if already enrolled
+        }
+      }
+
       setTopics(t);
       // Auto-expand first in-progress or available topic
-      const first = t.find(tp => tp.status === 'in_progress' || tp.status === 'available');
+      const first = t.find(tp => tp.status === 'in_progress' || tp.status === 'available') || t[0];
       if (first) setExpanded({ [first.id]: true });
     } catch (err) {
       toast.error(getErrorMessage(err));

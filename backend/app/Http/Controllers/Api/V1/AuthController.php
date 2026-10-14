@@ -26,6 +26,12 @@ class AuthController extends ApiController
         $user->role = 'student';
         $user->save();
 
+        // Auto-enroll new students in foundational course so Week 1 is immediately accessible
+        \App\Models\CourseEnrollment::firstOrCreate(
+            ['user_id' => $user->id, 'course_id' => 1],
+            ['status' => 'active', 'enrolled_at' => now()]
+        );
+
         $token = $user->createToken('auth-token')->plainTextToken;
 
         return $this->success([
