@@ -140,7 +140,7 @@ export default function CertificatePage() {
               Certificate of Academic Achievement
             </div>
 
-            <h2 style={{ fontSize: '2rem', fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, color: '#fff', marginBottom: 6 }}>
+            <h2 style={{ fontSize: '2rem', fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 6 }}>
               {user?.name || 'Valued Student'}
             </h2>
 
@@ -148,7 +148,7 @@ export default function CertificatePage() {
               has successfully completed all 8 curriculum modules and passed the comprehensive examination in
             </p>
 
-            <h3 style={{ fontSize: '1.4rem', color: 'var(--accent)', fontWeight: 600, marginBottom: 20 }}>
+            <h3 style={{ fontSize: '1.4rem', color: 'var(--primary)', fontWeight: 600, marginBottom: 20 }}>
               {primaryCert.course_title || 'AI-Powered Trigonometry Masterclass'}
             </h3>
 
@@ -158,9 +158,9 @@ export default function CertificatePage() {
                 display: 'inline-flex',
                 gap: 24,
                 padding: '12px 28px',
-                background: 'rgba(255, 255, 255, 0.04)',
+                background: 'var(--bg-elevated)',
                 borderRadius: 'var(--radius-lg)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid var(--border)',
                 marginBottom: 28,
               }}
             >
@@ -168,12 +168,12 @@ export default function CertificatePage() {
                 <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)' }}>Final Score</div>
                 <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--success)' }}>{primaryCert.final_score}%</div>
               </div>
-              <div style={{ width: 1, background: 'rgba(255, 255, 255, 0.1)' }} />
+              <div style={{ width: 1, background: 'var(--border)' }} />
               <div>
                 <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)' }}>Date Issued</div>
-                <div style={{ fontSize: '1.25rem', fontWeight: 600 }}>{new Date(primaryCert.issued_at).toLocaleDateString()}</div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--text-primary)' }}>{new Date(primaryCert.issued_at).toLocaleDateString()}</div>
               </div>
-              <div style={{ width: 1, background: 'rgba(255, 255, 255, 0.1)' }} />
+              <div style={{ width: 1, background: 'var(--border)' }} />
               <div>
                 <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)' }}>Certificate ID</div>
                 <div style={{ fontSize: '1.25rem', fontFamily: 'monospace', color: 'var(--primary)' }}>{primaryCert.certificate_number}</div>
